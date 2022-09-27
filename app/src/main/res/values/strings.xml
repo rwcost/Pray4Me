@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Pray4Me</string>
+    <string name="menuInstructions">Please click on any picture...</string>
+    <string name="requestInstructions">I need someone to pray for me!</string>
+    <string name="prayerChainInstructions">Link people to pray...</string>
+    <string name="communityResources">See the community help for you</string>
+    <string name="PrayRequestPageTitle">Type in or tap your prayer request</string>
+    <string name="prayerChainInstruction">Please Select Prayer Chain</string>
+    <string name="CommunityResourceInstruction">Please Select Community Resource</string>
+    <string name="trouble">I\'m in trouble, please pray for me.</string>
+    <string name="addiction">I have an addiction, please pray for me.</string>
+    <string name="cancer">I have cancer, please pray for me.</string>
+    <string name="job">Please pray that I can get a job.</string>
+    <string name="depressed">I am very depressed, please pray for me.</string>
+    <string name="lonely">I am lonely, pray for me to meet someone.</string>
+    <string name="spouse">Please pray for my spouse.</string>
+    <string name="child">Please pray for my child.</string>
+    <string name="parent">Please pray for my parent.</string>
+    <string name="finances">Please pray for my finances.</string>
+    <string name="example">Tap on sample requests below if applicable.</string>
+    <string name="exampleclick">Click examples below</string>
+    <string name="Donetext">Done</string>
+    <string name="dadtext">Please pray for my Dad</string>
+    <string name="momtext">Please pray for my Mother</string>
+    <string name="wifetext">Please pray for my wife</string>
+    <string name="husbandtext">Please pray for my husband</string>
+    <string name="requestisttext">Pray request List</string>
+    <string name="prayerrequestlisttext">Prayer request List</string>
+    <string name="sendbutton">Send</string>
+    <string name="btnBack">Back</string>
+    <string name="btnAdd">Add Request</string>
+    <string name="btnClear">Clear</string>
+    <string name="clear">Clear</string>
+    <string name="mtbutton">Clear</string>
+</resources>
