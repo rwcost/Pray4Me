@@ -1,6 +1,5 @@
 package com.example.pray4me;
 
-import static com.example.pray4me.R.id.btnLogin1;
 import static com.example.pray4me.R.id.prayRequestImageButton;
 import static com.example.pray4me.R.id.chainButton;
 import static com.example.pray4me.R.id.communityButton;
@@ -9,15 +8,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-public class MenuMainActivity3 extends AppCompatActivity implements View.OnClickListener {
+public class MenuJava extends AppCompatActivity implements View.OnClickListener {
     String username = "";
     String password = "";
 
@@ -25,7 +21,7 @@ public class MenuMainActivity3 extends AppCompatActivity implements View.OnClick
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.menu_main3);
+        setContentView(R.layout.menu_xml);
         ImageButton prayRequestbutton;
         ImageButton prayerChainButton;
         ImageButton communityResourceButton;
@@ -80,15 +76,15 @@ public class MenuMainActivity3 extends AppCompatActivity implements View.OnClick
     public void onClick(View v){
         switch (v.getId()){
             case prayRequestImageButton:
-                Intent i=new Intent(MenuMainActivity3.this, PrayRequestMainActivity4.class);
+                Intent i=new Intent(MenuJava.this, SelectionsJava.class);
                 startActivity(i);
                 break;
             case chainButton:
-                Intent j =new Intent(MenuMainActivity3.this, prayerChainMainActivity5.class);
+                Intent j =new Intent(MenuJava.this, PrayerChainJava.class);
                 startActivity(j);
                 break;
             case communityButton:
-                Intent k =new Intent(MenuMainActivity3.this, CommunityResourceMainActivity6.class);
+                Intent k =new Intent(MenuJava.this, ResourceJava.class);
                 startActivity(k);
                 break;
         }

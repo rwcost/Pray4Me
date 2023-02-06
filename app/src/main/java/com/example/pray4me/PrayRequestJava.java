@@ -1,12 +1,13 @@
 package com.example.pray4me;
 
-import static com.example.pray4me.R.id.btnBack;
+import static com.example.pray4me.R.id.btnAdd;
 import static com.example.pray4me.R.id.btnSummaryClear;
 import static com.example.pray4me.R.id.btnSend;
 
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.view.View;
@@ -15,7 +16,7 @@ import android.widget.EditText;
 
 import java.util.ArrayList;
 
-public class PrayRequestMainActivity5 extends AppCompatActivity implements View.OnClickListener {
+public class PrayRequestJava extends AppCompatActivity implements View.OnClickListener {
 
     EditText summary;
     ArrayList<Editable> myArrayList = new ArrayList<Editable>();
@@ -23,7 +24,7 @@ public class PrayRequestMainActivity5 extends AppCompatActivity implements View.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pray_request_main5);
+        setContentView(R.layout.pray_request_list);
         summary = (EditText) findViewById(R.id.mlvRequestSummary);
         myArrayList = (ArrayList<Editable>) Model.instance().getPrayerRequestList();
 
@@ -32,8 +33,8 @@ public class PrayRequestMainActivity5 extends AppCompatActivity implements View.
         sendbutton.setOnClickListener(this);
 
         // set up a button and point it to a xml button
-        Button backbutton = findViewById(btnBack);
-        backbutton.setOnClickListener(this);
+        Button addButton = findViewById(btnAdd);
+        addButton.setOnClickListener(this);
 
         // set up a button and point it to a xml button
         Button clearbutton = findViewById(btnSummaryClear);
@@ -48,7 +49,6 @@ public class PrayRequestMainActivity5 extends AppCompatActivity implements View.
             summary.append(myArrayList.get(i));
             summary.append(lineSep);
         }
-
     }
 
     @Override
@@ -60,6 +60,18 @@ public class PrayRequestMainActivity5 extends AppCompatActivity implements View.
                 //clear the arraylist
                 myArrayList.clear();
                 break;
+            case btnAdd:
+                // go to the pray request page and add another request
+                Intent kk=new Intent(PrayRequestJava.this, SelectionsJava.class);
+                startActivity(kk);
+            case btnSend:
+                // send requests to api
+                //write your code to send request to the api
+
+
+
+
+
         }
     }
 }

@@ -7,16 +7,23 @@
         <entry key="..\:/Users/cost6/AndroidStudioProjects/Pray4Me/app/src/main/res/layout/activity_main.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/cost6/AndroidStudioProjects/Pray4Me/app/src/main/res/layout/activity_main2.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/cost6/AndroidStudioProjects/Pray4Me/app/src/main/res/layout/activity_main3.xml" value="0.13958333333333334" />
+        <entry key="..\:/Users/cost6/AndroidStudioProjects/Pray4Me/app/src/main/res/layout/activity_main_pray4.xml" value="0.4466666666666667" />
         <entry key="..\:/Users/cost6/AndroidStudioProjects/Pray4Me/app/src/main/res/layout/activity_pray_request_main4.xml" value="0.22" />
         <entry key="..\:/Users/cost6/AndroidStudioProjects/Pray4Me/app/src/main/res/layout/activity_pray_request_main5.xml" value="0.22" />
+        <entry key="..\:/Users/cost6/AndroidStudioProjects/Pray4Me/app/src/main/res/layout/activity_pray_request_selections.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/cost6/AndroidStudioProjects/Pray4Me/app/src/main/res/layout/activity_prayer_chain_main5.xml" value="0.5" />
         <entry key="..\:/Users/cost6/AndroidStudioProjects/Pray4Me/app/src/main/res/layout/activity_second.xml" value="0.17447916666666666" />
+        <entry key="..\:/Users/cost6/AndroidStudioProjects/Pray4Me/app/src/main/res/layout/activity_select_request.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/cost6/AndroidStudioProjects/Pray4Me/app/src/main/res/layout/logon_main2.xml" value="0.4466666666666667" />
         <entry key="..\:/Users/cost6/AndroidStudioProjects/Pray4Me/app/src/main/res/layout/menu_main3.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/cost6/AndroidStudioProjects/Pray4Me/app/src/main/res/layout/opening_main.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/cost6/AndroidStudioProjects/Pray4Me/app/src/main/res/layout/pray_request_list.xml" value="0.4466666666666667" />
+        <entry key="..\:/Users/cost6/AndroidStudioProjects/Pray4Me/app/src/main/res/layout/select_request_xml.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/cost6/AndroidStudioProjects/Pray4Me/app/src/main/res/layout/selections_xml.xml" value="0.22" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

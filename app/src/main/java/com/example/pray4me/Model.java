@@ -19,11 +19,11 @@ public class Model {
 
     ArrayList<Editable> prayerRequestList = new ArrayList<>();
 
-    public void setPrayerRequestList(ArrayList<Editable> prayerRequestList) {
-        this.prayerRequestList = prayerRequestList;
+    public void setPrayerRequestList(Editable prayerRequest) {
+        this.prayerRequestList.add(prayerRequest);
     }
 
-    public Object getPrayerRequestList() {
+    public ArrayList<Editable> getPrayerRequestList() {
         return prayerRequestList ;
     }
 }

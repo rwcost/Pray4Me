@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
     public void onClick(View v){
         switch (v.getId()){
             case btnLogin1:
-                Intent i=new Intent(MainActivity.this, LogonMainActivity2.class);
+                Intent i=new Intent(MainActivity.this, LogonJava.class);
                 startActivity(i);
         }
     }

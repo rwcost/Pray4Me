@@ -10,17 +10,15 @@ package com.example.pray4me;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
 
-public class CommunityResourceMainActivity6 extends AppCompatActivity implements View.OnClickListener{
+public class ResourceJava extends AppCompatActivity implements View.OnClickListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_community_resource_main6);
+        setContentView(R.layout.resource_xml);
 
         //TextView tvTrouble = null;
         //tvTrouble.setOnClickListener(this);

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PrayRequestMainActivity4">
+    tools:context=".SelectionsJava">
 
     <TextView
         android:id="@+id/husband"
@@ -13,6 +13,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
         android:text="@string/husbandtext"
+        android:textColor="@color/black"
         android:textSize="15dp"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toTopOf="@+id/lonely"
@@ -27,10 +28,12 @@
         android:layout_width="200dp"
         android:layout_height="23dp"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="8dp"
         android:text="@string/momtext"
+        android:textColor="@color/black"
         android:textSize="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toTopOf="@+id/btnSelectToPray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/chilld"
         app:layout_constraintVertical_bias="0.0" />
@@ -42,6 +45,7 @@
         android:layout_marginTop="16dp"
         android:text="@string/PrayRequestPageTitle"
         android:textAlignment="center"
+        android:textColor="@android:color/holo_red_dark"
         android:textSize="24sp"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
@@ -50,8 +54,8 @@
 
     <EditText
         android:id="@+id/request"
-        android:layout_width="336dp"
-        android:layout_height="82dp"
+        android:layout_width="342dp"
+        android:layout_height="42dp"
         android:layout_marginTop="24dp"
         android:ems="10"
         android:gravity="start|top"
@@ -62,7 +66,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <Button
-        android:id="@+id/btnsubmit"
+        android:id="@+id/btnAddRequest"
         android:layout_width="132dp"
         android:layout_height="55dp"
         android:layout_marginTop="16dp"
@@ -81,6 +85,7 @@
         android:layout_marginTop="32dp"
         android:text="I'm in trouble, please pray for me."
         android:textAlignment="center"
+        android:textColor="@color/black"
         android:textSize="20dp"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
@@ -93,6 +98,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="@string/addiction"
+        android:textColor="@color/black"
         android:textSize="20dp"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
@@ -105,6 +111,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="I have cancer, please pray for me."
+        android:textColor="@color/black"
         android:textSize="20dp"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
@@ -117,6 +124,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="@string/job"
+        android:textColor="@color/black"
         android:textSize="20dp"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
@@ -129,6 +137,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="@string/depressed"
+        android:textColor="@color/black"
         android:textSize="20dp"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
@@ -142,6 +151,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:text="@string/wifetext"
+        android:textColor="@color/black"
         android:textSize="15dp"
         android:textStyle="bold|italic"
         app:layout_constraintStart_toStartOf="parent"
@@ -153,6 +163,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="@string/lonely"
+        android:textColor="@color/black"
         android:textSize="20dp"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
@@ -165,6 +176,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="@string/child"
+        android:textColor="@color/black"
         android:textSize="20dp"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
@@ -175,12 +187,13 @@
         android:id="@+id/dad"
         android:layout_width="175dp"
         android:layout_height="20dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
         android:text="@string/dadtext"
+        android:textColor="@color/black"
         android:textSize="15dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnSelectToPray"
         app:layout_constraintEnd_toStartOf="@+id/mother"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -208,5 +221,16 @@
         android:text="@string/Donetext"
         app:layout_constraintEnd_toStartOf="@+id/btnclear"
         app:layout_constraintTop_toBottomOf="@+id/request" />
+
+    <Button
+        android:id="@+id/btnSelectToPray"
+        android:layout_width="383dp"
+        android:layout_height="53dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/btnPrayFor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

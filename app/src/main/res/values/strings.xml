@@ -32,4 +32,7 @@
     <string name="btnClear">Clear</string>
     <string name="clear">Clear</string>
     <string name="mtbutton">Clear</string>
+    <string name="btnPrayFor">Press to Pray For Others!</string>
+    <string name="praySelect">Please Select Request to pray for</string>
+    <string name="clickToAdd">Click to add another prayer request</string>
 </resources>

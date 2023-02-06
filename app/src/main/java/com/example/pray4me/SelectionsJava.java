@@ -1,8 +1,9 @@
 package com.example.pray4me;
 
 import static com.example.pray4me.R.id.addiction;
+import static com.example.pray4me.R.id.btnSelectToPray;
 import static com.example.pray4me.R.id.btnclear;
-import static com.example.pray4me.R.id.btnsubmit;
+import static com.example.pray4me.R.id.btnAddRequest;
 import static com.example.pray4me.R.id.cancer;
 import static com.example.pray4me.R.id.chilld;
 import static com.example.pray4me.R.id.depressed;
@@ -28,16 +29,19 @@ import android.view.View;
 
 import java.util.ArrayList;
 
-public class PrayRequestMainActivity4 extends AppCompatActivity implements View.OnClickListener {
+public class SelectionsJava extends AppCompatActivity implements View.OnClickListener {
 
-    ArrayList<Editable> prayerRequestList = new ArrayList<>();
+    Editable prayerRequest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pray_request_main4);
+        setContentView(R.layout.selections_xml);
 
-        Button submitbutton = findViewById(btnsubmit);
+        Button selectbutton = findViewById(btnSelectToPray);
+        selectbutton.setOnClickListener(this);
+
+        Button submitbutton = findViewById(btnAddRequest);
         submitbutton.setOnClickListener(this);
 
         Button clearbutton = findViewById(btnclear);
@@ -163,20 +167,26 @@ public class PrayRequestMainActivity4 extends AppCompatActivity implements View.
                 //set the text for the request box
                 requestcontents.setText("");
                 break;
-            case btnsubmit:
+            case btnAddRequest:
                 // add the request text to an arraylist
-                prayerRequestList.add(requestcontents.getText());
-                requestcontents.setText("");
+                //prayerRequestList.add(requestcontents.getText());
+                //requestcontents.setText("");
+                Model.instance().setPrayerRequestList(requestcontents.getText());
+                Intent kk=new Intent(SelectionsJava.this, PrayRequestJava.class);
+                startActivity(kk);
                 break;
             case donebutton:
                 // get the string for the text view
                 //resource = getResources().getString(R.string.parent);
                 //save the arraylist of prayer requests to the Model class (share data here)
-                Model.instance().setPrayerRequestList(prayerRequestList);
-                Intent i=new Intent(PrayRequestMainActivity4.this, PrayRequestMainActivity5.class);
-                startActivity(i);
+                Model.instance().setPrayerRequestList(prayerRequest);
+                Intent ii=new Intent(SelectionsJava.this, PrayRequestJava.class);
+                startActivity(ii);
                 break;
-
+            case btnSelectToPray:
+                // this is the button to pray for a request
+                Intent j =new Intent(SelectionsJava.this, MenuJava.class);
+                startActivity(j);
        }
     }
 }

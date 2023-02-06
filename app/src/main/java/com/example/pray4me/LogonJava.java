@@ -12,12 +12,12 @@ import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
 
-public class LogonMainActivity2 extends AppCompatActivity {
+public class LogonJava extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.logon_main2);
+        setContentView(R.layout.logon_xml);
         changeText();
     }
     public void changeText(){
@@ -41,7 +41,7 @@ public class LogonMainActivity2 extends AppCompatActivity {
                     //say login is ok
                     Snackbar mySnackbar = Snackbar.make(view, "login is ok", 2500);
                     mySnackbar.show();
-                    Intent i=new Intent(LogonMainActivity2.this, MenuMainActivity3.class);
+                    Intent i=new Intent(LogonJava.this, MenuJava.class);
                     startActivity(i);
                 }
                 else
