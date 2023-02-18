@@ -13,6 +13,21 @@ import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -62,16 +77,32 @@ public class PrayRequestJava extends AppCompatActivity implements View.OnClickLi
                 break;
             case btnAdd:
                 // go to the pray request page and add another request
-                Intent kk=new Intent(PrayRequestJava.this, SelectionsJava.class);
+                Intent kk = new Intent(PrayRequestJava.this, SelectionsJava.class);
                 startActivity(kk);
             case btnSend:
                 // send requests to api
                 //write your code to send request to the api
-
-
-
-
-
+// Instantiate the RequestQueue.
+                ////final TextView textView = (TextView) findViewById(R.id.text);
+                String myUrl = "https://run.mocky.io/v3/81915be5-ea63-45b2-b29f-2d43494a335d";
+                StringRequest myRequest = new StringRequest(Request.Method.GET, myUrl,
+                        response -> {
+                            try {
+                                //Create a JSON object containing information from the API.
+                                JSONObject myJsonObject = new JSONObject(response);
+                                //totalCasesWorld.setText(myJsonObject.getString("cases"));
+                                summary.setText(myJsonObject.getString("Friend"));
+                                Toast.makeText(PrayRequestJava.this, myJsonObject.getString("name"), Toast.LENGTH_SHORT).show();
+                                //totalRecoveredWorld.setText(myJsonObject.getString("recovered"));
+                                //totalDeathsWorld.setText(myJsonObject.getString("deaths"));
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        },
+                        volleyError -> Toast.makeText(PrayRequestJava.this, volleyError.getMessage(), Toast.LENGTH_SHORT).show()
+                );
+                RequestQueue requestQueue = Volley.newRequestQueue(this);
+                requestQueue.add(myRequest);
         }
     }
 }
