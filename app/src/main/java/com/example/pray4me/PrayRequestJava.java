@@ -84,15 +84,19 @@ public class PrayRequestJava extends AppCompatActivity implements View.OnClickLi
                 //write your code to send request to the api
 // Instantiate the RequestQueue.
                 ////final TextView textView = (TextView) findViewById(R.id.text);
-                String myUrl = "https://run.mocky.io/v3/81915be5-ea63-45b2-b29f-2d43494a335d";
+                //String myUrl = "http://run.mocky.io/v3/81915be5-ea63-45b2-b29f-2d43494a335d";
+                String myUrl = "http://10.0.2.2:5069/WeatherForecast";
+                //String myUrl = "https://www.7timer.info/bin/astro.php?lon=113.2&lat=23.1&ac=0&unit=metric&output=json&tzshift=0";
                 StringRequest myRequest = new StringRequest(Request.Method.GET, myUrl,
                         response -> {
                             try {
                                 //Create a JSON object containing information from the API.
-                                JSONObject myJsonObject = new JSONObject(response);
+                                JSONArray myJsonObject = new JSONArray(response);
                                 //totalCasesWorld.setText(myJsonObject.getString("cases"));
-                                summary.setText(myJsonObject.getString("Friend"));
-                                Toast.makeText(PrayRequestJava.this, myJsonObject.getString("name"), Toast.LENGTH_SHORT).show();
+                                //summary.setText(myJsonObject.getString("product"));
+                                summary.setText("Friend");
+                                //summary.setText(myJsonObject.getString("Friend"));
+                                //Toast.makeText(PrayRequestJava.this, myJsonObject.getString("Friend"), Toast.LENGTH_SHORT).show();
                                 //totalRecoveredWorld.setText(myJsonObject.getString("recovered"));
                                 //totalDeathsWorld.setText(myJsonObject.getString("deaths"));
                             } catch (JSONException e) {
