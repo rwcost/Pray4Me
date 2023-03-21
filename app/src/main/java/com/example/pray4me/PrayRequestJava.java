@@ -68,7 +68,8 @@ public class PrayRequestJava extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
+        switch (v.getId())
+        {
             case btnSummaryClear:
                 // clear the multiline textview
                 summary.setText("");
@@ -80,33 +81,48 @@ public class PrayRequestJava extends AppCompatActivity implements View.OnClickLi
                 Intent kk = new Intent(PrayRequestJava.this, SelectionsJava.class);
                 startActivity(kk);
             case btnSend:
-                // send requests to api
-                //write your code to send request to the api
-// Instantiate the RequestQueue.
-                ////final TextView textView = (TextView) findViewById(R.id.text);
-                //String myUrl = "http://run.mocky.io/v3/81915be5-ea63-45b2-b29f-2d43494a335d";
-                String myUrl = "http://10.0.2.2:5069/WeatherForecast";
-                //String myUrl = "https://www.7timer.info/bin/astro.php?lon=113.2&lat=23.1&ac=0&unit=metric&output=json&tzshift=0";
-                StringRequest myRequest = new StringRequest(Request.Method.GET, myUrl,
-                        response -> {
-                            try {
-                                //Create a JSON object containing information from the API.
-                                JSONArray myJsonObject = new JSONArray(response);
-                                //totalCasesWorld.setText(myJsonObject.getString("cases"));
-                                //summary.setText(myJsonObject.getString("product"));
-                                summary.setText("Friend");
-                                //summary.setText(myJsonObject.getString("Friend"));
-                                //Toast.makeText(PrayRequestJava.this, myJsonObject.getString("Friend"), Toast.LENGTH_SHORT).show();
-                                //totalRecoveredWorld.setText(myJsonObject.getString("recovered"));
-                                //totalDeathsWorld.setText(myJsonObject.getString("deaths"));
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                        },
-                        volleyError -> Toast.makeText(PrayRequestJava.this, volleyError.getMessage(), Toast.LENGTH_SHORT).show()
-                );
-                RequestQueue requestQueue = Volley.newRequestQueue(this);
-                requestQueue.add(myRequest);
+
+                StringBuilder responseString = new StringBuilder();
+
+                JSONArray responseArray = new JSONArray();
+
+                APIData myAPI = new APIData();
+
+                responseArray = myAPI.GetDataFromAPI(this);
+
+                for(int i = 0; i < responseArray.length() - 1;i++)
+            {
+                try {
+                    responseString.append((responseArray.getJSONObject(i).getString("summary")));
+                    responseString.append(" ; ");
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+                String test = "";
+
+//                // send requests to api
+//                //write your code to send request to the api
+//// Instantiate the RequestQueue.
+//                ////final TextView textView = (TextView) findViewById(R.id.text);
+//                //String myUrl = "http://run.mocky.io/v3/81915be5-ea63-45b2-b29f-2d43494a335d";
+//                String myUrl = "http://10.0.2.2:5069/WeatherForecast";
+//                //String myUrl = "https://www.7timer.info/bin/astro.php?lon=113.2&lat=23.1&ac=0&unit=metric&output=json&tzshift=0";
+//                StringRequest myRequest = new StringRequest(Request.Method.GET, myUrl,
+//                        response -> {
+//                            try {
+//                                //Create a JSON object containing information from the API.
+//                                JSONArray myJsonObject = new JSONArray(response);
+//
+//                                } catch (JSONException e) {
+//                                e.printStackTrace();
+//                            }
+//                        },
+//                        volleyError -> Toast.makeText(PrayRequestJava.this, volleyError.getMessage(), Toast.LENGTH_SHORT).show()
+//                );
+//                RequestQueue requestQueue = Volley.newRequestQueue(this);
+//                requestQueue.add(myRequest);
         }
     }
 }
