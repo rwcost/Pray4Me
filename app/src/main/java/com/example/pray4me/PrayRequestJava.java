@@ -60,7 +60,8 @@ public class PrayRequestJava extends AppCompatActivity implements View.OnClickLi
         String lineSep = System.getProperty("line.separator");
         ArrayList<Editable> myArrayList = (ArrayList<Editable>) Model.instance().getPrayerRequestList();
 
-        for (int i = 0; i <= myArrayList.size() - 1; i++) {
+        for (int i = 0; i <= myArrayList.size() - 1; i++)
+        {
             summary.append(myArrayList.get(i));
             summary.append(lineSep);
         }
@@ -92,10 +93,12 @@ public class PrayRequestJava extends AppCompatActivity implements View.OnClickLi
 
                 for(int i = 0; i < responseArray.length() - 1;i++)
             {
-                try {
+                try
+                {
                     responseString.append((responseArray.getJSONObject(i).getString("summary")));
                     responseString.append(" ; ");
-                } catch (JSONException e) {
+                } catch (JSONException e)
+                {
                     throw new RuntimeException(e);
                 }
             }
@@ -123,6 +126,7 @@ public class PrayRequestJava extends AppCompatActivity implements View.OnClickLi
 //                );
 //                RequestQueue requestQueue = Volley.newRequestQueue(this);
 //                requestQueue.add(myRequest);
+
         }
     }
 }
