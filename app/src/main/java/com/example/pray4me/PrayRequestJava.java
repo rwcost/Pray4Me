@@ -82,23 +82,33 @@ public class PrayRequestJava extends AppCompatActivity implements View.OnClickLi
                 startActivity(kk);
             case btnSend:
 
-                StringBuilder responseString = new StringBuilder();
+                APIExchange myExchange = new APIExchange();
 
-                JSONArray responseArray = new JSONArray();
-
-                APIData myAPI = new APIData();
-
-                responseArray = myAPI.GetDataFromAPI(this);
-
-                for(int i = 0; i < responseArray.length() - 1;i++)
-            {
                 try {
-                    responseString.append((responseArray.getJSONObject(i).getString("summary")));
-                    responseString.append(" ; ");
+                    myExchange.postDataUsingVolleyBody("Joe","Dirt",this);
                 } catch (JSONException e) {
                     throw new RuntimeException(e);
                 }
-            }
+
+                //myExchange.GetDataFromAPI(this,"1");
+
+//                StringBuilder responseString = new StringBuilder();
+//
+//                JSONArray responseArray = new JSONArray();
+//
+//                APIData myAPI = new APIData();
+//
+//                responseArray = myAPI.GetDataFromAPI(this);
+//
+//                for(int i = 0; i < responseArray.length() - 1;i++)
+//            {
+//                try {
+//                    responseString.append((responseArray.getJSONObject(i).getString("summary")));
+//                    responseString.append(" ; ");
+//                } catch (JSONException e) {
+//                    throw new RuntimeException(e);
+//                }
+//            }
 
                 String test = "";
 

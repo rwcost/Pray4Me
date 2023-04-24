@@ -1,6 +1,7 @@
 package com.example.pray4me;
 
 import android.content.Context;
+import android.widget.EditText;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -32,11 +33,14 @@ public class APIData {
                         JSONArray myJsonArray = new JSONArray(response);
                         responseArray.set(myJsonArray);
 
+                        //summary.setText("");
+
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
                 },
                 volleyError -> errorMessage.set(volleyError.getMessage())
+
         );
         RequestQueue requestQueue = Volley.newRequestQueue(context);
 
