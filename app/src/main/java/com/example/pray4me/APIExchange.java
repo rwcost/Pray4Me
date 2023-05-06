@@ -28,139 +28,105 @@ public class APIExchange {
 
     APIExchange(){
 
+        String responseString = "";
     }
+
+    String responseString = "";
+    final String[] responseString1 = {""};
+
     /*
-    This method will Post data (send from phone to web) and Get data
-    the information will be passed to this method.  Then the information
-    is put in the request, then put in queue, then sent to the web.
+     This method will get data from the web, we send a web request with the id passed below,
+     then the data returned from the web will be put in a JSONArray
      */
-    public void postDataUsingVolley(String name, String job, Context context) {
-        // url to post our data
-        //String url = "https://reqres.in/api/users";
-        String url = "http://10.0.2.2:5215/api/Users/dddd";
+    public void GetDataFromAPI(Context context,String id) {
+        /*
+            This address of the web API
+        */
+        String URL = "http://10.0.2.2:5215/api/Users/10007";
 
-        //loadingPB.setVisibility(View.VISIBLE);
-
-        // creating a new variable for our request queue
-        RequestQueue queue = Volley.newRequestQueue(context);
-
-        // on below line we are calling a string
-        // request method to post the data to our API
-        // in this we are calling a post method.
-        StringRequest request = new StringRequest(Request.Method.POST, url, new com.android.volley.Response.Listener<String>()
-        {
+        /*
+        This creates a queue to hold the requests and send them when the system is ready
+         */
+        RequestQueue queue;
+        /*
+            Sets up the queue
+         */
+        queue = Volley.newRequestQueue(context);
+        /*
+            This is the code that creates a request for data from the Web API
+            Notice the 'GET' in the parameters this means to 'get data' from
+            wht web API.
+         */
+        StringRequest request = new StringRequest(Request.Method.GET, URL, new Response.Listener<String>() {
+            /*
+                This section of code is using the volley library to send data to a remote API
+                public StringRequest(java.lang.String url,
+                    Response.Listener<java.lang.String> listener,
+                    @Nullable
+                    Response.ErrorListener errorListener)
+ */
+            /*
+                This is the section referenced above called the Response.Listener<java.lang.String> listener.
+                It will actually run when a response comes back from the web API.  Just look at the commas
+                for separation.
+            */
             @Override
             public void onResponse(String response)
             {
-                // inside on response method we are
-                // hiding our progress bar
-                // and setting data to edit text as empty
-                //loadingPB.setVisibility(View.GONE);
-                //nameEdt.setText("");
-                //jobEdt.setText("");
-
-                // on below line we are displaying a success toast message.
-                //Toast.makeText(MainActivity.this, "Data added to API", Toast.LENGTH_SHORT).show();
-                try {
-                    // on below line we are parsing the response
-                    // to json object to extract data from it.
-                    JSONObject respObj = new JSONObject(response);
-
-                    // below are the strings which we
-                    // extract from our json object.
-                    //String requester = respObj.getString("requester1");
-                    //String request = respObj.getString("Pray for me");
-
-                    // on below line we are setting this string s to our text view.
-                    //responseTV.setText("Name : " + name + "\n" + "Job : " + job);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+               //Toast.makeText(context,response.toString(),Toast.LENGTH_LONG).show();
+                responseString1[0]= response.toString();
+                SaveDataHere saveDateReceivedFromApi = new SaveDataHere();
+                saveDateReceivedFromApi.saveContactData(responseString1[0].toString());
+                //
             }
-        }, new com.android.volley.Response.ErrorListener()
-            {
+        }, new Response.ErrorListener() {
             @Override
-            public void onErrorResponse(VolleyError error)
-                {
-                // method to handle errors.
-                //Toast.makeText(MainActivity.this, "Fail to get response = " + error, Toast.LENGTH_SHORT).show();
-                }
-            })
-//        {
-////
-//            protected String myData()
-//            {
-//                return "HelloThere";
-//            }
-////            @Override
-////            protected Map<String, String> getParams()
-////            {
-////                String mydata = "helloThere";
-////                // below line we are creating a map for
-////                // storing our values in key and value pair.
-////                Map<String, String> params = new HashMap<String, String>();
-////
-////                // on below line we are passing our key
-////                // and value pair to our parameters.
-////                params.put("name", "requester1");
-////                params.put("request", "Pray for me");
-////
-////                // at last we are
-////                // returning our params.
-////                return params;
-////               }
-        //}
-        ;
-        // below line is to make
-        // a json object request.
+            public void onErrorResponse(VolleyError error) {
+                //Log.d("error",error.toString());
+            }
+        });
         queue.add(request);
+
+        /*
+            You can't return here because you don't know if the data has been received
+            The data will be saved in the SaveDataHere class.
+         */
+
     }
+
     /*
-     This method will get data from the web, we send a web request with the id passed below,
-     then the data returned fro the web wil be put in a JSONArray
+        //    This function will send a JSON Object to the web api.  This is an example of the data being in JSON format
+        //    This is JSON format (JSON Object)
+        //              {
+            //            "fname" : "Bob",
+            //             "lname" : "Jones",
+            //             "address1" : "231 Riverroad",
+            //             "address2" : "Suite 578",
+            //             "city" : "Dayton",
+            //             "state" : "Ohio",
+            //             "country" : "USA",
+            //             "zipcode" : "45454",
+            //             "phone" : "543-222-2222",
+            //             "contacttype" : "requester" ,
+            //             "status" : "good",
+            //             "userID" : "1",
+            //             "guestID" : "na"
+            //           }
+
+    This method will Post send data from the phone to web API (Application Programming Interface)
+    the information will be passed to this method.  Then the information
+    is put in the request, then put in queue, then sent to the web.  This will store the user
+    information to a database on a remote server via the web.
      */
-    public JSONArray GetDataFromAPI(Context context,String id) {
-        AtomicReference<JSONArray> responseArray = new AtomicReference<>(new JSONArray());
-        // Instantiate the RequestQueue.
-        // Online test API's
-        //String myUrl = "http://run.mocky.io/v3/81915be5-ea63-45b2-b29f-2d43494a335d";
-        //String myUrl = "https://www.7timer.info/bin/astro.php?lon=113.2&lat=23.1&ac=0&unit=metric&output=json&tzshift=0";
-        // Instantiate the RequestQueue.
-        //connection string to PrayForMe API
-        String myUrl = "http://10.0.2.2:5069/WeatherForecast";
-        AtomicReference<String> errorMessage = new AtomicReference<>("");
-        StringRequest myRequest = new StringRequest(Request.Method.GET, myUrl,
-                response ->
-                {
-                    try {
-                        //Create a JSON object containing information from the API.
-                        JSONArray myJsonArray = new JSONArray(response);
-                        responseArray.set(myJsonArray);
-
-                        //summary.setText("");
-
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                },
-                volleyError -> errorMessage.set(volleyError.getMessage())
-
-        );
-        RequestQueue requestQueue = Volley.newRequestQueue(context);
-
-        requestQueue.add(myRequest);
-
-        return responseArray.get();
-    }
-
     public void postDataUsingVolleyBody(String name, String job, Context context) throws JSONException {
         // url to post our data
-        //String url = "https://reqres.in/api/users";
         String url = "http://10.0.2.2:5215/api/Users/create";
 
         //loadingPB.setVisibility(View.VISIBLE);
 
-        // creating a new variable for our request queue
+        /*
+         This section of code creates a test JSON object to send to the API
+         */
         RequestQueue queue = Volley.newRequestQueue(context);
         JSONObject jsonBody = new JSONObject();
         jsonBody.put("fname", "Bob");
@@ -177,43 +143,44 @@ public class APIExchange {
         jsonBody.put("userID", "1");
         jsonBody.put("guestID", "na");
 
-
+        /*
+        JSON does have a formatting style, but it is still just a string.
+         */
         final String mRequestBody = jsonBody.toString();
-        // on below line we are calling a string
-        // request method to post the data to our API
-        // in this we are calling a post method.
+        /*
+        This section of code is using the volley library to send data to a remote API
+        public StringRequest(java.lang.String url,
+                     Response.Listener<java.lang.String> listener,
+                     @Nullable
+                     Response.ErrorListener errorListener)
+         */
         StringRequest request = new StringRequest(Request.Method.POST, url, new com.android.volley.Response.Listener<String>()
         {
+            /*
+            This is the section referenced above called the Response.Listener<java.lang.String> listener.
+            It will actually run when a response comes back from the web API.  Just look at the commas
+            for separation.
+             */
             @Override
             public void onResponse(String response)
             {
-                // inside on response method we are
-                // hiding our progress bar
-                // and setting data to edit text as empty
-                //loadingPB.setVisibility(View.GONE);
-                //nameEdt.setText("");
-                //jobEdt.setText("");
-
-                // on below line we are displaying a success toast message.
                 //Toast.makeText(MainActivity.this, "Data added to API", Toast.LENGTH_SHORT).show();
-                try {
-                    // on below line we are parsing the response
-                    // to json object to extract data from it.
+                try { //Try is used to catch errors in the try area and send them to the catch
+                    /*
+                        This will put the data sent back from the request into the variable 'respObj'
+                     */
                     JSONObject respObj = new JSONObject(response);
 
-                    // below are the strings which we
-                    // extract from our json object.
-                    //String requester = respObj.getString("requester1");
-                    //String request = respObj.getString("Pray for me");
-
-                    // on below line we are setting this string s to our text view.
-                    //responseTV.setText("Name : " + name + "\n" + "Job : " + job);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
             }
         }, new com.android.volley.Response.ErrorListener()
         {
+            /*
+            This area is diffenent from the try/catch because this is an error that is from the
+            remote Web API
+             */
             @Override
             public void onErrorResponse(VolleyError error)
             {
@@ -221,18 +188,25 @@ public class APIExchange {
                 //Toast.makeText(MainActivity.this, "Fail to get response = " + error, Toast.LENGTH_SHORT).show();
             }
         })		{
+            /*
+                This section will set up the formatting type for the JSON Body
+             */
             @Override
             public String getBodyContentType()
             {
                 return "application/json; charset=utf-8";
             }
 
+           /*
+                This
+            */
             @Override
             public byte[] getBody() throws AuthFailureError
             {
                 try
                 {
                     return mRequestBody == null ? null : mRequestBody.getBytes("utf-8");
+
                 } catch (UnsupportedEncodingException uee)
                 {
                     VolleyLog.wtf("Unsupported Encoding while trying to get the bytes of %s using %s", mRequestBody, "utf-8");
@@ -251,11 +225,11 @@ public class APIExchange {
                 return Response.success(responseString, HttpHeaderParser.parseCacheHeaders(response));
             }
         };
-        // below line is to make
-        // a json object request.
+        /*
+            This will add the above into a "queue" system to send them when the system
+            is ready to send them.
+         */
         queue.add(request);
     }
-
-
 
 }
