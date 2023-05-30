@@ -30,6 +30,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class PrayRequestJava extends AppCompatActivity implements View.OnClickListener {
 
@@ -90,7 +91,7 @@ public class PrayRequestJava extends AppCompatActivity implements View.OnClickLi
                 Create a request to get data from the web API,
                 The data back from the request is saved using the SaveDataHere.
                 */
-                myExchange.GetDataFromAPI(this,"10007");
+                myExchange.GetDataFromAPI(this,"request_by_zipcode",summary);
 
         }
     }

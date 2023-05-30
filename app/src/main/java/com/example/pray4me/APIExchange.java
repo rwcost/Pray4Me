@@ -2,6 +2,8 @@ package com.example.pray4me;
 
 import android.content.Context;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -38,11 +40,12 @@ public class APIExchange {
      This method will get data from the web, we send a web request with the id passed below,
      then the data returned from the web will be put in a JSONArray
      */
-    public void GetDataFromAPI(Context context,String id) {
+    public void GetDataFromAPI(Context context, String queryName, TextView myViewIn) {
         /*
             This address of the web API
         */
-        String URL = "http://10.0.2.2:5215/api/Users/10007";
+        String URL = "http://10.0.2.2:5215/api/Users/" + queryName;
+
 
         /*
         This creates a queue to hold the requests and send them when the system is ready
@@ -75,8 +78,11 @@ public class APIExchange {
             {
                //Toast.makeText(context,response.toString(),Toast.LENGTH_LONG).show();
                 responseString1[0]= response.toString();
-                SaveDataHere saveDateReceivedFromApi = new SaveDataHere();
-                saveDateReceivedFromApi.saveContactData(responseString1[0].toString());
+
+                myViewIn.setText(response.toString());
+                //context.
+                //SaveDataHere saveDateReceivedFromApi = new SaveDataHere();
+                //saveDateReceivedFromApi.saveContactData(responseString1[0].toString());
                 //
             }
         }, new Response.ErrorListener() {

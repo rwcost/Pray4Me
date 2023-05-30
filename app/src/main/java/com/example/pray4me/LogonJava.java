@@ -11,9 +11,13 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
-
+/*
+This class is the opening screen which provides login options
+ */
 public class LogonJava extends AppCompatActivity {
-
+/*
+This method will be called when the Activity is started
+ */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,21 +25,24 @@ public class LogonJava extends AppCompatActivity {
         changeText();
     }
     public void changeText(){
-
+        /*
+        This will connect the java button to the screen button R.id.Loginbutton
+         */
         final Button button = (Button) findViewById(R.id.Loginbutton);
-
+        /*
+        This method will be called when the mouse clicks on the button,
+        it listens for the mouse click "event"
+         */
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 button.setText("Button has been pressed");
-
-                TextView user = (TextView) findViewById(R.id.editTextTextPersonName2);
-                TextView password = (TextView) findViewById(R.id.editTextTextPersonName3);
+                TextView user = (TextView) findViewById(R.id.loginName);
+                TextView password = (TextView) findViewById(R.id.loginPassword);
 
                 user.toString().trim();
 
-                //if(login(user.toString().trim(),password.toString().trim()))
                 if(true)
                 {
                     //say login is ok
@@ -50,9 +57,6 @@ public class LogonJava extends AppCompatActivity {
                     Snackbar mySnackbar = Snackbar.make(view, "login is invalid", 2500);
                     mySnackbar.show();
                 }
-
-//                Intent i=new Intent(MainActivity2.this, MainActivity3.class);
-//                startActivity(i);
             }
         });
 

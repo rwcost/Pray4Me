@@ -36,6 +36,7 @@ public class SelectionsJava extends AppCompatActivity implements View.OnClickLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.selections_xml);
 
         Button selectbutton = findViewById(btnSelectToPray);

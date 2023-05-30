@@ -6,15 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".SelectRequestJava">
 
-  <Button
-      android:id="@+id/button5"
-      android:layout_width="315dp"
-      android:layout_height="34dp"
-      android:layout_marginTop="16dp"
-      android:text="Select a request to pray for in my area"
+  <EditText
+      android:id="@+id/txtZipcode"
+      android:layout_width="377dp"
+      android:layout_height="36dp"
+      android:layout_marginBottom="24dp"
+      android:ems="10"
+      android:inputType="textPersonName"
+      android:textSize="30dp"
+      app:layout_constraintBottom_toTopOf="@+id/tvRequestReturned"
       app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.421"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/button4" />
+      tools:text="Enter Zip Code here" />
+
+  <Button
+      android:id="@+id/btnPrayByZipcode"
+      android:layout_width="382dp"
+      android:layout_height="51dp"
+      android:layout_marginBottom="24dp"
+      android:text="Select a request to pray for in my area"
+      app:layout_constraintBottom_toTopOf="@+id/txtZipcode"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.448"
+      app:layout_constraintStart_toStartOf="parent" />
 
   <TextView
       android:id="@+id/textView12"
@@ -23,41 +38,43 @@
       android:layout_marginTop="16dp"
       android:text="Please Select a option bellow"
       android:textAlignment="center"
+      app:layout_constraintBottom_toTopOf="@+id/btnPrayForAll"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent" />
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.0" />
 
   <Button
-      android:id="@+id/button3"
+      android:id="@+id/btnPrayForAll"
       android:layout_width="188dp"
       android:layout_height="37dp"
-      android:layout_marginTop="16dp"
       android:text="Pray for all requests"
       app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.497"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/textView12" />
+      tools:layout_editor_absoluteY="36dp" />
 
   <Button
-      android:id="@+id/button4"
-      android:layout_width="307dp"
-      android:layout_height="34dp"
-      android:layout_marginTop="16dp"
-      android:text="Select a random request to pray for"
+      android:id="@+id/btnRandomRequest"
+      android:layout_width="389dp"
+      android:layout_height="41dp"
+      android:text="Select random requests to pray for"
+      app:layout_constraintBottom_toTopOf="@+id/btnPrayByZipcode"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/button3" />
+      app:layout_constraintTop_toBottomOf="@+id/btnPrayForAll"
+      app:layout_constraintVertical_bias="0.333" />
 
   <TextView
-      android:id="@+id/txt1"
-      android:layout_width="337dp"
-      android:layout_height="475dp"
-      android:layout_marginTop="16dp"
+      android:id="@+id/tvRequestReturned"
+      android:layout_width="368dp"
+      android:layout_height="428dp"
+      android:layout_marginBottom="28dp"
       android:text="TextView"
+      android:textSize="40dp"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.513"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/button5"
-      app:layout_constraintVertical_bias="0.0" />
+      app:layout_constraintHorizontal_bias="0.534"
+      app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
