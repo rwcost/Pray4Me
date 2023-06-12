@@ -8,28 +8,37 @@
 
   <EditText
       android:id="@+id/txtZipcode"
-      android:layout_width="377dp"
-      android:layout_height="36dp"
+      android:layout_width="204dp"
+      android:layout_height="46dp"
       android:layout_marginBottom="24dp"
       android:ems="10"
       android:inputType="textPersonName"
-      android:textSize="30dp"
       app:layout_constraintBottom_toTopOf="@+id/tvRequestReturned"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.421"
+      app:layout_constraintEnd_toStartOf="@+id/btnPrayByZipcodeCont"
+      app:layout_constraintHorizontal_bias="0.47"
       app:layout_constraintStart_toStartOf="parent"
-      tools:text="Enter Zip Code here" />
+      tools:text=""/>
 
   <Button
       android:id="@+id/btnPrayByZipcode"
-      android:layout_width="382dp"
-      android:layout_height="51dp"
+      android:layout_width="369dp"
+      android:layout_height="40dp"
       android:layout_marginBottom="24dp"
-      android:text="Select a request to pray for in my area"
-      app:layout_constraintBottom_toTopOf="@+id/txtZipcode"
+      android:text="Enter Zip Code in which to pray"
+      app:layout_constraintBottom_toTopOf="@+id/btnPrayByZipcodeCont"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.448"
+      app:layout_constraintHorizontal_bias="0.38"
       app:layout_constraintStart_toStartOf="parent" />
+
+  <Button
+      android:id="@+id/btnPrayByZipcodeCont"
+      android:layout_width="137dp"
+      android:layout_height="48dp"
+      android:layout_marginEnd="36dp"
+      android:layout_marginBottom="24dp"
+      android:text="Continue"
+      app:layout_constraintBottom_toTopOf="@+id/tvRequestReturned"
+      app:layout_constraintEnd_toEndOf="parent" />
 
   <TextView
       android:id="@+id/textView12"
@@ -38,21 +47,23 @@
       android:layout_marginTop="16dp"
       android:text="Please Select a option bellow"
       android:textAlignment="center"
+      android:textColor="#92B"
       app:layout_constraintBottom_toTopOf="@+id/btnPrayForAll"
       app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.493"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
       app:layout_constraintVertical_bias="0.0" />
 
   <Button
       android:id="@+id/btnPrayForAll"
-      android:layout_width="188dp"
-      android:layout_height="37dp"
+      android:layout_width="177dp"
+      android:layout_height="32dp"
       android:text="Pray for all requests"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintHorizontal_bias="0.497"
       app:layout_constraintStart_toStartOf="parent"
-      tools:layout_editor_absoluteY="36dp" />
+      tools:layout_editor_absoluteY="41dp" />
 
   <Button
       android:id="@+id/btnRandomRequest"
@@ -74,7 +85,7 @@
       android:textSize="40dp"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.534"
+      app:layout_constraintHorizontal_bias="0.488"
       app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

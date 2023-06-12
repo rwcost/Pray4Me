@@ -40,11 +40,11 @@ public class APIExchange {
      This method will get data from the web, we send a web request with the id passed below,
      then the data returned from the web will be put in a JSONArray
      */
-    public void GetDataFromAPI(Context context, String queryName, TextView myViewIn) {
+    public void GetDataFromAPI(Context context, String queryToProcess, TextView myViewIn) {
         /*
             This address of the web API
         */
-        String URL = "http://10.0.2.2:5215/api/Users/" + queryName;
+        String URL = "http://10.0.2.2:5215/api/Users/" + queryToProcess;
 
 
         /*
@@ -62,13 +62,6 @@ public class APIExchange {
          */
         StringRequest request = new StringRequest(Request.Method.GET, URL, new Response.Listener<String>() {
             /*
-                This section of code is using the volley library to send data to a remote API
-                public StringRequest(java.lang.String url,
-                    Response.Listener<java.lang.String> listener,
-                    @Nullable
-                    Response.ErrorListener errorListener)
- */
-            /*
                 This is the section referenced above called the Response.Listener<java.lang.String> listener.
                 It will actually run when a response comes back from the web API.  Just look at the commas
                 for separation.
@@ -79,11 +72,13 @@ public class APIExchange {
                //Toast.makeText(context,response.toString(),Toast.LENGTH_LONG).show();
                 responseString1[0]= response.toString();
 
-                myViewIn.setText(response.toString());
-                //context.
-                //SaveDataHere saveDateReceivedFromApi = new SaveDataHere();
-                //saveDateReceivedFromApi.saveContactData(responseString1[0].toString());
-                //
+                for (String idx: responseString1)
+                {
+                    myViewIn.setText(idx + System.getProperty("line.separator"));
+                }
+
+               //myViewIn.setText(response.toString());
+
             }
         }, new Response.ErrorListener() {
             @Override
@@ -184,7 +179,7 @@ public class APIExchange {
         }, new com.android.volley.Response.ErrorListener()
         {
             /*
-            This area is diffenent from the try/catch because this is an error that is from the
+            This area is different from the try/catch because this is an error that is from the
             remote Web API
              */
             @Override
