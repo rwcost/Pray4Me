@@ -23,6 +23,7 @@ import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -65,20 +66,33 @@ public class APIExchange {
                 This is the section referenced above called the Response.Listener<java.lang.String> listener.
                 It will actually run when a response comes back from the web API.  Just look at the commas
                 for separation.
+                Here is an example of the JSON object returned from Azure
+                 {"operations":["I have a need","I am bored"]}
             */
             @Override
             public void onResponse(String response)
             {
                //Toast.makeText(context,response.toString(),Toast.LENGTH_LONG).show();
-                responseString1[0]= response.toString();
 
-                for (String idx: responseString1)
-                {
-                    myViewIn.setText(idx + System.getProperty("line.separator"));
+                try {
+                    String resultCombo = "";
+
+                    // put the response from the request to azure in a Json object
+                    JSONObject obj = new JSONObject(response.toString());
+
+                    // create a JSON array for the JSON object operations
+                    JSONArray arr = obj.getJSONArray("operations");
+
+                    // get the strings in the array and combine into resultCombo string
+                    for (int i = 0; i < arr.length(); i++) {
+                        resultCombo = resultCombo + arr.getString(i) + System.getProperty("line.separator");
+                    }
+                    // add the results strings into the screen view passed into this method
+                    myViewIn.setText(resultCombo);
+
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
                 }
-
-               //myViewIn.setText(response.toString());
-
             }
         }, new Response.ErrorListener() {
             @Override
