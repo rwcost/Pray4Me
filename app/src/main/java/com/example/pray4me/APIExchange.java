@@ -27,10 +27,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 
+/*
+This class wi used to send and receive data to the SQL server
+ */
 public class APIExchange {
 
     APIExchange(){
-
         String responseString = "";
     }
 
@@ -47,9 +49,8 @@ public class APIExchange {
         */
         String URL = "http://10.0.2.2:5215/api/Users/" + queryToProcess;
 
-
         /*
-        This creates a queue to hold the requests and send them when the system is ready
+        This creates a queue to hold the requests and send them to Azure to request prayer request is ready
          */
         RequestQueue queue;
         /*
@@ -66,14 +67,12 @@ public class APIExchange {
                 This is the section referenced above called the Response.Listener<java.lang.String> listener.
                 It will actually run when a response comes back from the web API.  Just look at the commas
                 for separation.
-                Here is an example of the JSON object returned from Azure
+                Here is an example of the JSON object returned from Azure:
                  {"operations":["I have a need","I am bored"]}
             */
             @Override
             public void onResponse(String response)
             {
-               //Toast.makeText(context,response.toString(),Toast.LENGTH_LONG).show();
-
                 try {
                     String resultCombo = "";
 
@@ -101,14 +100,9 @@ public class APIExchange {
             }
         });
         queue.add(request);
-
-        /*
-            You can't return here because you don't know if the data has been received
-            The data will be saved in the SaveDataHere class.
-         */
-
     }
 
+//  ********************************** Post JSON body to the database below **********************************************
     /*
         //    This function will send a JSON Object to the web api.  This is an example of the data being in JSON format
         //    This is JSON format (JSON Object)
@@ -143,6 +137,7 @@ public class APIExchange {
          This section of code creates a test JSON object to send to the API
          */
         RequestQueue queue = Volley.newRequestQueue(context);
+
         JSONObject jsonBody = new JSONObject();
         jsonBody.put("fname", "Bob");
         jsonBody.put("lname", "Jones");

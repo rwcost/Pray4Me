@@ -35,4 +35,14 @@
     <string name="btnPrayFor">Press to Pray For Others!</string>
     <string name="praySelect">Please Select Request to pray for</string>
     <string name="clickToAdd">Click to add another prayer request</string>
+    <string name="title_activity_addcontact_xml">addcontact_xml</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="title_activity_addcontact">addcontact</string>
 </resources>

@@ -1,5 +1,7 @@
 package com.example.pray4me;
 
+import static com.example.pray4me.R.id.prayRequestImageButton;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -14,53 +16,72 @@ import com.google.android.material.snackbar.Snackbar;
 /*
 This class is the opening screen which provides login options
  */
-public class LogonJava extends AppCompatActivity {
+public class LogonJava extends AppCompatActivity implements View.OnClickListener
+{
 /*
 This method will be called when the Activity is started
  */
+
+    Button button;
+    Button newuserButton;
+
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.logon_xml);
-        changeText();
+
+        button = (Button) findViewById(R.id.Loginbutton);
+        button.setOnClickListener(this);
+
+        newuserButton = (Button) findViewById(R.id.buttonNewUser);
+        newuserButton.setOnClickListener(this);
+
+
     }
-    public void changeText(){
-        /*
-        This will connect the java button to the screen button R.id.Loginbutton
-         */
-        final Button button = (Button) findViewById(R.id.Loginbutton);
-        /*
-        This method will be called when the mouse clicks on the button,
-        it listens for the mouse click "event"
-         */
-        button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-
-                button.setText("Button has been pressed");
-                TextView user = (TextView) findViewById(R.id.loginName);
-                TextView password = (TextView) findViewById(R.id.loginPassword);
-
-                user.toString().trim();
-
-                if(true)
+            public void onClick(View v)
+            {
+                switch (v.getId())
                 {
-                    //say login is ok
-                    Snackbar mySnackbar = Snackbar.make(view, "login is ok", 2500);
-                    mySnackbar.show();
+                    case R.id.Loginbutton:
+                    /*
+                    Creates the intent which will create an operation to be ran, in this case,
+                    to open the Prayer request menu screen by opening the Java class.
+                    */
                     Intent i=new Intent(LogonJava.this, MenuJava.class);
                     startActivity(i);
-                }
-                else
-                {
-                    //say login is invalid
-                    Snackbar mySnackbar = Snackbar.make(view, "login is invalid", 2500);
-                    mySnackbar.show();
+                    button.setText("Button has been pressed");
+                    TextView user = (TextView) findViewById(R.id.loginName);
+
+
+                    user.toString().trim();
+
+                    if(true)
+                    {
+                        //say login is ok
+                        Snackbar mySnackbar = Snackbar.make(v, "login is ok", 2500);
+                        mySnackbar.show();
+                        Intent j =new Intent(LogonJava.this, MenuJava.class);
+                        startActivity(j);
+                    }
+                    else
+                    {
+                        //say login is invalid
+                        Snackbar mySnackbar = Snackbar.make(v, "login is invalid", 2500);
+                        mySnackbar.show();
+                    }
+                    break;
+                   case R.id.buttonNewUser:
+                        Intent k=new Intent(LogonJava.this, addContact.class);
+                       startActivity(k);
                 }
             }
-        });
 
-    }
+
+
     public boolean login(String username, String password){
         //do database lookup
         //open the database Pray4medb
@@ -85,7 +106,6 @@ This method will be called when the Activity is started
             return(false);
         }
     }
-
 
 }
 
