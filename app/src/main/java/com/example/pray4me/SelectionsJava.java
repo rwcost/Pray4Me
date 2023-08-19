@@ -186,7 +186,7 @@ public class SelectionsJava extends AppCompatActivity implements View.OnClickLis
                 break;
             case btnSelectToPray:
                 // this is the button to pray for a request
-                Intent j =new Intent(SelectionsJava.this, MenuJava.class);
+                Intent j =new Intent(SelectionsJava.this, SelectRequestJava.class);
                 startActivity(j);
        }
     }
