@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 /*
@@ -38,7 +39,6 @@ This method will be called when the Activity is started
 
         newuserButton = (Button) findViewById(R.id.buttonNewUser);
         newuserButton.setOnClickListener(this);
-
 
     }
             @Override

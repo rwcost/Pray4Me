@@ -1,5 +1,6 @@
 package com.example.pray4me;
 
+
 import android.content.Context;
 import android.view.View;
 import android.widget.EditText;
@@ -16,6 +17,7 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -31,6 +33,8 @@ import java.util.concurrent.atomic.AtomicReference;
 This class wi used to send and receive data to the SQL server
  */
 public class APIExchange {
+
+
 
     APIExchange(){
         String responseString = "";
@@ -127,7 +131,7 @@ public class APIExchange {
     is put in the request, then put in queue, then sent to the web.  This will store the user
     information to a database on a remote server via the web.
      */
-    public void postDataUsingVolleyBody(String name, String job, Context context) throws JSONException {
+    public void postDataUsingVolleyBody(JSONObject jsonBodyInputParam, String status, Context context) throws JSONException {
         // url to post our data
         String url = "http://10.0.2.2:5215/api/Users/create";
 
@@ -138,26 +142,15 @@ public class APIExchange {
          */
         RequestQueue queue = Volley.newRequestQueue(context);
 
-        JSONObject jsonBody = new JSONObject();
-        jsonBody.put("fname", "Bob");
-        jsonBody.put("lname", "Jones");
-        jsonBody.put("address1", "231 River Road");
-        jsonBody.put("address2", "suite");
-        jsonBody.put("city", "Dayton");
-        jsonBody.put("state", "Ohio");
-        jsonBody.put("country", "USA");
-        jsonBody.put("zipcode", "45454");
-        jsonBody.put("phone", "543-222-2222");
-        jsonBody.put("contacttype", "requester");
-        jsonBody.put("status", "good");
-        jsonBody.put("userID", "1");
-        jsonBody.put("guestID", "na");
 
+        // from method input parameter, not using above code assignment to the jsonbody
+        final String mRequestBody = jsonBodyInputParam.toString();
         /*
         JSON does have a formatting style, but it is still just a string.
-         */
-        final String mRequestBody = jsonBody.toString();
-        /*
+
+        final String mRequestBody = jsonBody.toString();  // old
+        //final String mRequestBody = jsonBodyInputParam.toString();
+
         This section of code is using the volley library to send data to a remote API
         public StringRequest(java.lang.String url,
                      Response.Listener<java.lang.String> listener,
@@ -175,13 +168,15 @@ public class APIExchange {
             public void onResponse(String response)
             {
                 //Toast.makeText(MainActivity.this, "Data added to API", Toast.LENGTH_SHORT).show();
-                try { //Try is used to catch errors in the try area and send them to the catch
+                try
+                { //Try is used to catch errors in the try area and send them to the catch
                     /*
                         This will put the data sent back from the request into the variable 'respObj'
                      */
                     JSONObject respObj = new JSONObject(response);
 
-                } catch (JSONException e) {
+                } catch (JSONException e)
+                {
                     e.printStackTrace();
                 }
             }
@@ -231,6 +226,26 @@ public class APIExchange {
                 if (response != null)
                 {
                     responseString = String.valueOf(response.statusCode);
+
+//
+//                    runOnUiThread(new Runnable() {
+//                        public void run() {
+//                            //Do something on UiThread
+//                        }
+//                    });
+
+
+                    // create an addcontact object to call the popup menu
+//                    addContact myContactDisplay = new addContact();
+//                    myContactDisplay.popUpMaker(responseString);
+//                    activity.runOnUiThread(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            Toast.makeText(...).show();
+//                        }
+//                    });
+
+
                 }
                 return Response.success(responseString, HttpHeaderParser.parseCacheHeaders(response));
             }

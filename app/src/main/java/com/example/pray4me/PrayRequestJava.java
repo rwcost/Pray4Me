@@ -84,6 +84,7 @@ public class PrayRequestJava extends AppCompatActivity implements View.OnClickLi
             case btnSend:
                 /*
                     This is a class in which all the Web API code is accessed
+                    insert into dbo.request (userid,request,priority,type) values ('4','hello','1','1');
                  */
                 APIExchange myExchange = new APIExchange();
 
@@ -91,7 +92,8 @@ public class PrayRequestJava extends AppCompatActivity implements View.OnClickLi
                 Create a request to get data from the web API,
                 The data back from the request is saved using the SaveDataHere.
                 */
-                myExchange.GetDataFromAPI(this,"request_by_zipcode",summary);
+                String sql = "insert into dbo.request (userid,request,priority,type) values ('4','hello','1','1'); ";
+                //myExchange.GetDataFromAPI(this,"request_by_zipcode",summary);
 
         }
     }

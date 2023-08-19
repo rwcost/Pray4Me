@@ -85,8 +85,6 @@ public class SelectRequestJava extends AppCompatActivity implements View.OnClick
                 // this is the place where you enter your zipcode
                 TextView resultView = findViewById(R.id.tvRequestReturned);
 
-                String bob = "dummy stop";
-
                 /*
                 Create a new class to get the data from the mssql database
                  */

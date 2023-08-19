@@ -2,34 +2,31 @@ package com.example.pray4me;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 
 public class addContact extends AppCompatActivity  implements View.OnClickListener,AdapterView.OnItemSelectedListener {
     // create array of Strings
     // and store name of courses
     String[] usertypes= { "requester", "prayer",
             "admin", "resource"};
-    String usertype = "";
+    String contacttype = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_add_contact);
 
         //create a button and associate it with the xml button on the screen
@@ -54,6 +51,7 @@ public class addContact extends AppCompatActivity  implements View.OnClickListen
         // Set the ArrayAdapter (ad) data on the
         // Spinner which binds data to spinner
         username.setAdapter(ad);
+
     }
 
     @Override
@@ -69,7 +67,7 @@ public class addContact extends AppCompatActivity  implements View.OnClickListen
             EditText city = findViewById(R.id.et_city);
             EditText state = findViewById(R.id.et_state);
             EditText zipcode = findViewById(R.id.et_zipcode);
-            EditText phone = findViewById(R.id.et_phone);
+            EditText email = findViewById(R.id.et_email);
 
             jsonBody.put("fname", fname.getText());
             jsonBody.put("lname", lname.getText());
@@ -77,33 +75,42 @@ public class addContact extends AppCompatActivity  implements View.OnClickListen
             jsonBody.put("address2", add2.getText());
             jsonBody.put("city", city.getText());
             jsonBody.put("state", state.getText());
+            jsonBody.put("country", "USA");
             jsonBody.put("zipcode", zipcode.getText());
-            jsonBody.put("phone", phone.getText());
-            jsonBody.put("usertype", usertype);
+            jsonBody.put("email", email.getText());
+            jsonBody.put("contacttype", contacttype);
+            jsonBody.put("status","calm");
+            jsonBody.put("userid","br549");
+            jsonBody.put("guestid","br549a");
 
-            String stophere = "";
+            APIExchange api = new APIExchange();
+
+            api.postDataUsingVolleyBody(jsonBody,"ok",this);
 
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
     }
 
-
-
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
     {
         // make toastof name of course
         // which is selected in spinner
-        Toast.makeText(getApplicationContext(),
-                        usertypes[position],
-                        Toast.LENGTH_LONG)
-                .show();
-        usertype = usertypes[position];
+//        Toast.makeText(getApplicationContext(),
+//                        usertypes[position],
+//                        Toast.LENGTH_LONG)
+//                .show();
+        contacttype = usertypes[position];
     }
 
     @Override
-    public void onNothingSelected(AdapterView<?> parent) {
+    public void onNothingSelected(AdapterView<?> parent)
+    {
 
+    }
+    public void popUpMaker(String messageToDisplay)
+    {
+        Toast.makeText(getApplicationContext(),messageToDisplay,Toast.LENGTH_LONG).show();
     }
 }
