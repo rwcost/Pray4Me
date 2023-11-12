@@ -6,14 +6,11 @@ import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import static com.example.pray4me.R.id.btnSelectToPray;
 import static com.example.pray4me.R.id.btnPrayForAll;
 import static com.example.pray4me.R.id.btnRandomRequest;
 import static com.example.pray4me.R.id.btnPrayByZipcode;

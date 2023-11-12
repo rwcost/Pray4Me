@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00FFFFFF"
+    android:backgroundTint="#00BCD4"
+    android:foregroundTint="#00BCD4"
+    tools:context=".SelectRequestJava">
+
+  <Button
+      android:id="@+id/btnPrayByZipcodeCont"
+      android:layout_width="152dp"
+      android:layout_height="48dp"
+      android:layout_marginEnd="32dp"
+      android:layout_marginBottom="20dp"
+      android:text="Continue"
+      app:layout_constraintBottom_toTopOf="@+id/tvRequestReturned"
+      app:layout_constraintEnd_toEndOf="parent" />
+
+  <TextView
+      android:id="@+id/textView12"
+      android:layout_width="340dp"
+      android:layout_height="39dp"
+      android:text="Please Select a option bellow"
+      android:textAlignment="center"
+      android:textColor="#92B"
+      app:layout_constraintBottom_toTopOf="@+id/btnPrayForAll"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+  <Button
+      android:id="@+id/btnPrayByZipcode"
+      android:layout_width="363dp"
+      android:layout_height="58dp"
+      android:layout_marginBottom="16dp"
+      android:text="Enter Zip Code in which to pray"
+      app:layout_constraintBottom_toTopOf="@+id/textView14"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.541"
+      app:layout_constraintStart_toStartOf="parent" />
+
+  <Button
+      android:id="@+id/btnRandomRequest"
+      android:layout_width="365dp"
+      android:layout_height="59dp"
+      android:layout_marginBottom="12dp"
+      android:text="Select random requests to pray for"
+      app:layout_constraintBottom_toTopOf="@+id/btnPrayByZipcode"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.565"
+      app:layout_constraintStart_toStartOf="parent" />
+
+  <Button
+      android:id="@+id/btnPrayForAll"
+      android:layout_width="364dp"
+      android:layout_height="43dp"
+      android:layout_marginBottom="12dp"
+      android:text="Pray for all requests"
+      app:layout_constraintBottom_toTopOf="@+id/btnRandomRequest"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.574"
+      app:layout_constraintStart_toStartOf="parent" />
+
+  <TextView
+      android:id="@+id/tvRequestReturned"
+      android:layout_width="371dp"
+      android:layout_height="320dp"
+      android:layout_marginBottom="32dp"
+      android:text="TextView"
+      android:textSize="20sp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent" />
+
+  <TextView
+      android:id="@+id/textView14"
+      android:layout_width="190dp"
+      android:layout_height="22dp"
+      android:layout_marginBottom="8dp"
+      android:text="   Put Zipcode in below..."
+      app:layout_constraintBottom_toTopOf="@+id/txtZipcode"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.09"
+      app:layout_constraintStart_toStartOf="parent" />
+
+  <EditText
+      android:id="@+id/txtZipcode"
+      android:layout_width="192dp"
+      android:layout_height="38dp"
+      android:layout_marginBottom="20dp"
+      android:ems="10"
+      android:inputType="textPersonName"
+      android:text="Name"
+      app:layout_constraintBottom_toTopOf="@+id/tvRequestReturned"
+      app:layout_constraintEnd_toStartOf="@+id/btnPrayByZipcodeCont"
+      app:layout_constraintHorizontal_bias="0.628"
+      app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
