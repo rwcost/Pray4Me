@@ -1,236 +1,255 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".SelectionsJava">
+    android:layout_width="409dp"
+    android:layout_height="500dp"
+    tools:layout_editor_absoluteX="1dp"
+    tools:layout_editor_absoluteY="1dp"
+    android:fillViewport="true"
+    >
 
-    <TextView
-        android:id="@+id/husband"
-        android:layout_width="194dp"
-        android:layout_height="19dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/husbandtext"
-        android:textColor="@color/black"
-        android:textSize="15dp"
-        android:textStyle="bold|italic"
-        app:layout_constraintBottom_toTopOf="@+id/lonely"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.943"
-        app:layout_constraintStart_toEndOf="@+id/wife"
-        app:layout_constraintTop_toBottomOf="@+id/depressed"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/mother"
-        android:layout_width="200dp"
-        android:layout_height="23dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/momtext"
-        android:textColor="@color/black"
-        android:textSize="15dp"
-        android:textStyle="bold|italic"
-        app:layout_constraintBottom_toTopOf="@+id/btnSelectToPray"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/chilld"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/PrayRequestPageTitle"
-        android:textAlignment="center"
-        android:textColor="@android:color/holo_red_dark"
-        android:textSize="24sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:context=".SelectionsJava">
 
-    <EditText
-        android:id="@+id/request"
-        android:layout_width="342dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="24dp"
-        android:ems="10"
-        android:gravity="start|top"
-        android:inputType="textMultiLine"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        <TextView
+            android:id="@+id/husband"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/husbandtext"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:textStyle="bold|italic"
+            app:layout_constraintBottom_toTopOf="@+id/lonely"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.943"
+            app:layout_constraintStart_toEndOf="@+id/wife"
+            app:layout_constraintTop_toBottomOf="@+id/depressed"
+            app:layout_constraintVertical_bias="0.0" />
 
-    <Button
-        android:id="@+id/btnAddRequest"
-        android:layout_width="132dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/btnAdd"
-        app:layout_constraintBottom_toTopOf="@+id/trouble"
-        app:layout_constraintEnd_toStartOf="@+id/donebutton"
-        app:layout_constraintHorizontal_bias="0.568"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/request"
-        app:layout_constraintVertical_bias="0.0" />
+        <TextView
+            android:id="@+id/mother"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:text="@string/momtext"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:textStyle="bold|italic"
+            app:layout_constraintBottom_toTopOf="@+id/btnSelectToPray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/chilld"
+            app:layout_constraintVertical_bias="0.0" />
 
-    <TextView
-        android:id="@+id/trouble"
-        android:layout_width="328dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="32dp"
-        android:text="I'm in trouble, please pray for me."
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/donebutton" />
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/PrayRequestPageTitle"
+            android:textAlignment="center"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/addiction"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/addiction"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/trouble" />
+        <EditText
+            android:id="@+id/request"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:ems="10"
+            android:gravity="start|top"
+            android:inputType="textMultiLine"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
-    <TextView
-        android:id="@+id/cancer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="I have cancer, please pray for me."
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addiction" />
+        <Button
+            android:id="@+id/btnAddRequest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/btnAdd"
+            app:layout_constraintBottom_toTopOf="@+id/trouble"
+            app:layout_constraintEnd_toStartOf="@+id/donebutton"
+            app:layout_constraintHorizontal_bias="0.568"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/request"
+            app:layout_constraintVertical_bias="0.0" />
 
-    <TextView
-        android:id="@+id/job"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/job"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cancer" />
+        <TextView
+            android:id="@+id/trouble"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="I'm in trouble, please pray for me."
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="@+id/btnSelectToPray"
+            app:layout_constraintStart_toStartOf="@+id/btnSelectToPray"
+            app:layout_constraintTop_toBottomOf="@+id/btnSelectToPray" />
 
-    <TextView
-        android:id="@+id/depressed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/depressed"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/job" />
+        <TextView
+            android:id="@+id/addiction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="@string/addiction"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.612"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/trouble" />
 
-    <TextView
-        android:id="@+id/wife"
-        android:layout_width="187dp"
-        android:layout_height="19dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:text="@string/wifetext"
-        android:textColor="@color/black"
-        android:textSize="15dp"
-        android:textStyle="bold|italic"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/depressed" />
+        <TextView
+            android:id="@+id/cancer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="I have cancer, please pray for me."
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addiction" />
 
-    <TextView
-        android:id="@+id/lonely"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/lonely"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/wife" />
+        <TextView
+            android:id="@+id/job"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/job"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cancer" />
 
-    <TextView
-        android:id="@+id/chilld"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/child"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lonely" />
+        <TextView
+            android:id="@+id/depressed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/depressed"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/job" />
 
-    <TextView
-        android:id="@+id/dad"
-        android:layout_width="175dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:text="@string/dadtext"
-        android:textColor="@color/black"
-        android:textSize="15dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/btnSelectToPray"
-        app:layout_constraintEnd_toStartOf="@+id/mother"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chilld"
-        app:layout_constraintVertical_bias="0.0" />
+        <TextView
+            android:id="@+id/wife"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/wifetext"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:textStyle="bold|italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/depressed" />
 
-    <Button
-        android:id="@+id/btnclear"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="24dp"
-        android:text="Clear"
-        app:layout_constraintBottom_toTopOf="@+id/trouble"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/request"
-        app:layout_constraintVertical_bias="0.0" />
+        <TextView
+            android:id="@+id/lonely"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/lonely"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/wife" />
 
-    <Button
-        android:id="@+id/donebutton"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="20dp"
-        android:text="@string/Donetext"
-        app:layout_constraintEnd_toStartOf="@+id/btnclear"
-        app:layout_constraintTop_toBottomOf="@+id/request" />
+        <TextView
+            android:id="@+id/chilld"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/child"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lonely" />
 
-    <Button
-        android:id="@+id/btnSelectToPray"
-        android:layout_width="383dp"
-        android:layout_height="53dp"
-        android:layout_marginBottom="16dp"
-        android:text="@string/btnPrayFor"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.428"
-        app:layout_constraintStart_toStartOf="parent" />
+        <TextView
+            android:id="@+id/dad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="44dp"
+            android:text="@string/dadtext"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/chilld"
+            app:layout_constraintStart_toStartOf="@+id/chilld"
+            app:layout_constraintTop_toBottomOf="@+id/chilld" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/dad1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="56dp"
+            android:text="@string/dadtext"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/dad"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/dad"
+            app:layout_constraintTop_toBottomOf="@+id/dad" />
+
+        <Button
+            android:id="@+id/btnclear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="24dp"
+            android:text="Clear"
+            app:layout_constraintBottom_toTopOf="@+id/trouble"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/request"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/donebutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="20dp"
+            android:text="@string/Donetext"
+            app:layout_constraintEnd_toStartOf="@+id/btnclear"
+            app:layout_constraintTop_toBottomOf="@+id/request" />
+
+        <Button
+            android:id="@+id/btnSelectToPray"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:text="@string/btnPrayFor"
+            app:layout_constraintEnd_toEndOf="@+id/btnclear"
+            app:layout_constraintStart_toStartOf="@+id/btnAddRequest"
+            app:layout_constraintTop_toBottomOf="@+id/donebutton" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
