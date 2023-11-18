@@ -1,184 +1,208 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#3D809E"
-    tools:context=".addContact">
+    android:layout_width="409dp"
+    android:layout_height="700dp"
+    tools:layout_editor_absoluteX="1dp"
+    tools:layout_editor_absoluteY="1dp"
+    android:fillViewport="true"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".addContact">
+
+        <EditText
+            android:id="@+id/et_firstname"
+            android:layout_width="355dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="12dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="First Name"
+            android:inputType="textMultiLine"
+            android:textColorHint="#FFEB3B"
+            android:textSize="22dp"
+            app:layout_constraintStart_toStartOf="@+id/textView13"
+            app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+        <EditText
+            android:id="@+id/et_lastname"
+            android:layout_width="355dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="12dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="Last name"
+            android:inputType="textMultiLine"
+            android:textColorHint="#FFEB3B"
+            android:textSize="22dp"
+            app:layout_constraintEnd_toEndOf="@+id/et_firstname"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/et_firstname"
+            app:layout_constraintTop_toBottomOf="@+id/et_firstname" />
+
+        <EditText
+            android:id="@+id/et_email"
+            android:layout_width="360dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="28dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="Email"
+            android:inputType="textMultiLine"
+            android:textColorHint="#FFEB3B"
+            android:textSize="22dp"
+            app:layout_constraintEnd_toEndOf="@+id/et_zipcode"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toStartOf="@+id/et_zipcode"
+            app:layout_constraintTop_toBottomOf="@+id/et_zipcode" />
+
+        <EditText
+            android:id="@+id/et_zipcode"
+            android:layout_width="355dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="Zipcode"
+            android:inputType="textMultiLine"
+            android:textColorHint="#FFEB3B"
+            android:textSize="22dp"
+            app:layout_constraintTop_toBottomOf="@+id/et_state"
+            tools:layout_editor_absoluteX="27dp" />
+
+        <EditText
+            android:id="@+id/et_state"
+            android:layout_width="355dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="24dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="State"
+            android:inputType="textMultiLine"
+            android:textColorHint="#FFEB3B"
+            android:textSize="22dp"
+            app:layout_constraintEnd_toEndOf="@+id/et_city"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/et_city"
+            app:layout_constraintTop_toBottomOf="@+id/et_city" />
+
+        <EditText
+            android:id="@+id/et_city"
+            android:layout_width="355dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="City"
+            android:inputType="textMultiLine"
+            android:textColorHint="#FFEB3B"
+            android:textSize="22dp"
+            app:layout_constraintEnd_toEndOf="@+id/et_address2"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/et_address2"
+            app:layout_constraintTop_toBottomOf="@+id/et_address2" />
+
+        <EditText
+            android:id="@+id/et_address2"
+            android:layout_width="355dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="Address 2"
+            android:inputType="textMultiLine"
+            android:textColorHint="#FFEB3B"
+            android:textSize="22dp"
+            app:layout_constraintEnd_toEndOf="@+id/et_address1"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/et_address1"
+            app:layout_constraintTop_toBottomOf="@+id/et_address1" />
+
+        <EditText
+            android:id="@+id/et_address1"
+            android:layout_width="355dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="Address 1"
+            android:inputType="textMultiLine"
+            android:textColorHint="#FFEB3B"
+            android:textSize="22dp"
+            app:layout_constraintEnd_toEndOf="@+id/et_lastname"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/et_lastname"
+            app:layout_constraintTop_toBottomOf="@+id/et_lastname" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="359dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:layout_weight="1"
+            android:hint="Please enter your information..."
+            android:text="Please enter your information..."
+            android:textColorHint="#FFEB3B"
+            android:textSize="22dp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
-    <EditText
-        android:id="@+id/et_firstname"
-        android:layout_width="355dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="20dp"
-        android:layout_weight="1"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="First Name"
-        android:inputType="textMultiLine"
-        android:textColorHint="#FFEB3B"
-        android:textSize="22dp"
-        app:layout_constraintEnd_toEndOf="@+id/et_lastname"
-        app:layout_constraintStart_toStartOf="@+id/et_lastname"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+        <Button
+            android:id="@+id/btnContactDone"
+            android:layout_width="134dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="52dp"
+            android:layout_weight="1"
+            android:text="Done"
+            app:layout_constraintEnd_toEndOf="@+id/spinner"
+            app:layout_constraintHorizontal_bias="0.508"
+            app:layout_constraintStart_toStartOf="@+id/spinner"
+            app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
-    <EditText
-        android:id="@+id/et_lastname"
-        android:layout_width="355dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="20dp"
-        android:layout_weight="1"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="Last name"
-        android:inputType="textMultiLine"
-        android:textColorHint="#FFEB3B"
-        android:textSize="22dp"
-        app:layout_constraintEnd_toEndOf="@+id/et_address1"
-        app:layout_constraintHorizontal_bias="0.535"
-        app:layout_constraintStart_toStartOf="@+id/et_address1"
-        app:layout_constraintTop_toBottomOf="@+id/et_firstname" />
+        <EditText
+            android:id="@+id/et_Faith"
+            android:layout_width="355dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="24dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="Faith"
+            android:inputType="textMultiLine"
+            android:textColorHint="#FFEB3B"
+            android:textSize="22dp"
+            app:layout_constraintEnd_toEndOf="@+id/et_email"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/et_email"
+            app:layout_constraintTop_toBottomOf="@+id/et_email" />
 
-    <EditText
-        android:id="@+id/et_email"
-        android:layout_width="360dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="20dp"
-        android:layout_weight="1"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="Email"
-        android:inputType="textMultiLine"
-        android:textColorHint="#FFEB3B"
-        android:textSize="22dp"
-        app:layout_constraintEnd_toEndOf="@+id/spinner"
-        app:layout_constraintHorizontal_bias="0.45"
-        app:layout_constraintStart_toStartOf="@+id/spinner"
-        app:layout_constraintTop_toBottomOf="@+id/et_zipcode" />
-
-    <EditText
-        android:id="@+id/et_zipcode"
-        android:layout_width="355dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="16dp"
-        android:layout_weight="1"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="Zipcode"
-        android:inputType="textMultiLine"
-        android:textColorHint="#FFEB3B"
-        android:textSize="22dp"
-        app:layout_constraintEnd_toEndOf="@+id/et_email"
-        app:layout_constraintHorizontal_bias="0.464"
-        app:layout_constraintStart_toStartOf="@+id/et_email"
-        app:layout_constraintTop_toBottomOf="@+id/et_state" />
-
-    <EditText
-        android:id="@+id/et_state"
-        android:layout_width="355dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="20dp"
-        android:layout_weight="1"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="State"
-        android:inputType="textMultiLine"
-        android:textColorHint="#FFEB3B"
-        android:textSize="22dp"
-        app:layout_constraintEnd_toEndOf="@+id/et_zipcode"
-        app:layout_constraintHorizontal_bias="0.553"
-        app:layout_constraintStart_toStartOf="@+id/et_zipcode"
-        app:layout_constraintTop_toBottomOf="@+id/et_city" />
-
-    <EditText
-        android:id="@+id/et_city"
-        android:layout_width="355dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="20dp"
-        android:layout_weight="1"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="City"
-        android:inputType="textMultiLine"
-        android:textColorHint="#FFEB3B"
-        android:textSize="22dp"
-        app:layout_constraintEnd_toEndOf="@+id/et_state"
-        app:layout_constraintHorizontal_bias="0.553"
-        app:layout_constraintStart_toStartOf="@+id/et_state"
-        app:layout_constraintTop_toBottomOf="@+id/et_address2" />
-
-    <EditText
-        android:id="@+id/et_address2"
-        android:layout_width="355dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="20dp"
-        android:layout_weight="1"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="Address 2"
-        android:inputType="textMultiLine"
-        android:textColorHint="#FFEB3B"
-        android:textSize="22dp"
-        app:layout_constraintEnd_toEndOf="@+id/et_city"
-        app:layout_constraintHorizontal_bias="0.553"
-        app:layout_constraintStart_toStartOf="@+id/et_city"
-        app:layout_constraintTop_toBottomOf="@+id/et_address1" />
-
-    <EditText
-        android:id="@+id/et_address1"
-        android:layout_width="355dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="16dp"
-        android:layout_weight="1"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="Address 1"
-        android:inputType="textMultiLine"
-        android:textColorHint="#FFEB3B"
-        android:textSize="22dp"
-        app:layout_constraintEnd_toEndOf="@+id/et_address2"
-        app:layout_constraintHorizontal_bias="0.464"
-        app:layout_constraintStart_toStartOf="@+id/et_address2"
-        app:layout_constraintTop_toBottomOf="@+id/et_lastname" />
-
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="359dp"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:hint="Please enter your information..."
-        android:text="Please enter your information..."
-        android:textColorHint="#FFEB3B"
-        android:textSize="22dp"
-        app:autoSizeTextType="uniform"
-        app:layout_constraintEnd_toEndOf="@+id/et_firstname"
-        app:layout_constraintStart_toStartOf="@+id/et_firstname"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnContactDone"
-        android:layout_width="134dp"
-        android:layout_height="45dp"
-        android:layout_marginBottom="16dp"
-        android:layout_weight="1"
-        android:text="Done"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="360dp"
-        android:layout_height="37dp"
-        android:layout_weight="1"
-        android:foregroundTint="#FFEB3B"
-        android:spinnerMode="dropdown"
-        android:textSize="22dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnContactDone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_email" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="360dp"
+            android:layout_height="37dp"
+            android:layout_marginTop="28dp"
+            android:layout_weight="1"
+            android:foregroundTint="#FFEB3B"
+            android:spinnerMode="dropdown"
+            android:textSize="22dp"
+            app:layout_constraintEnd_toEndOf="@+id/et_Faith"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/et_Faith"
+            app:layout_constraintTop_toBottomOf="@+id/et_Faith" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
