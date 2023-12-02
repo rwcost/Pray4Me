@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
                 Intent i=new Intent(MainActivity.this, LogonJava.class);
                 startActivity(i);
             case btnGuest:// if the guest button was pressed
-                Intent j=new Intent(MainActivity.this, LogonJava.class);
+                Intent j=new Intent(MainActivity.this, MenuJava.class);
                 startActivity(j);
         }
     }

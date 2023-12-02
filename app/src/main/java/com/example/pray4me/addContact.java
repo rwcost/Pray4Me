@@ -68,6 +68,8 @@ public class addContact extends AppCompatActivity  implements View.OnClickListen
             EditText state = findViewById(R.id.et_state);
             EditText zipcode = findViewById(R.id.et_zipcode);
             EditText email = findViewById(R.id.et_email);
+            EditText password = findViewById(R.id.et_password);
+            EditText username = findViewById(R.id.et_username);
 
             jsonBody.put("fname", fname.getText());
             jsonBody.put("lname", lname.getText());
@@ -82,6 +84,8 @@ public class addContact extends AppCompatActivity  implements View.OnClickListen
             jsonBody.put("status","calm");
             jsonBody.put("userid","br549");
             jsonBody.put("guestid","br549a");
+            jsonBody.put("password","br549b");
+            jsonBody.put("username","junior");
 
             APIExchange api = new APIExchange();
 
