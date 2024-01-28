@@ -1,6 +1,7 @@
 package com.example.pray4me;
 
 import static com.example.pray4me.R.id.prayRequestImageButton;
+import static com.example.pray4me.R.id.trouble;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,19 +18,19 @@ import com.google.android.material.snackbar.Snackbar;
 /*
 This class is the opening screen which provides login options
  */
-public class LogonJava extends AppCompatActivity implements View.OnClickListener
-{
 /*
 This method will be called when the Activity is started
  */
-
+public class LogonJava extends AppCompatActivity implements View.OnClickListener
+{
     Button button;
     Button newuserButton;
+    SaveDataHere saveDataHere = new SaveDataHere();
 
+    //TextView pwd_status = findViewById(R.id.returnedValue);
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.logon_xml);
@@ -40,6 +41,13 @@ This method will be called when the Activity is started
         newuserButton = (Button) findViewById(R.id.buttonNewUser);
         newuserButton.setOnClickListener(this);
 
+        //TextView pwd_status = findViewById(R.id.returnedValue);
+    }
+
+    public void setTxt(String retStatus)
+    {
+        TextView pwd_status = findViewById(R.id.returnedValue);
+        pwd_status.setText(retStatus);
     }
             @Override
             public void onClick(View v)
@@ -47,40 +55,29 @@ This method will be called when the Activity is started
                 switch (v.getId())
                 {
                     case R.id.Loginbutton:
+
+                        // this is the place where you enter your zipcode
+                        TextView resultView = findViewById(R.id.returnedValue);
+                        resultView.setText("");
+                        TextView user1 = (TextView) findViewById(R.id.loginName);
+                        String user2 = user1.getText().toString().trim();
                     /*
                     Creates the intent which will create an operation to be ran, in this case,
                     to open the Prayer request menu screen by opening the Java class.
                     */
-                    Intent i=new Intent(LogonJava.this, MenuJava.class);
-                    startActivity(i);
-                    button.setText("Button has been pressed");
-                    TextView user = (TextView) findViewById(R.id.loginName);
+                        APIExchange myExchange = new APIExchange();
 
+                       String queryToProcess = "select password from users where username like '" + user2 + "'"     ;
 
-                    user.toString().trim();
+                       String myResult = myExchange.GetDataFromAPI(this,queryToProcess,resultView);
 
-                    if(true)
-                    {
-                        //say login is ok
-                        Snackbar mySnackbar = Snackbar.make(v, "login is ok", 2500);
-                        mySnackbar.show();
-                        Intent j =new Intent(LogonJava.this, MenuJava.class);
-                        startActivity(j);
-                    }
-                    else
-                    {
-                        //say login is invalid
-                        Snackbar mySnackbar = Snackbar.make(v, "login is invalid", 2500);
-                        mySnackbar.show();
-                    }
                     break;
                    case R.id.buttonNewUser:
                         Intent k=new Intent(LogonJava.this, addContact.class);
                        startActivity(k);
+                       break;
                 }
             }
-
-
 
     public boolean login(String username, String password){
         //do database lookup

@@ -29,12 +29,14 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
     // method to process the above listener for the button
     public void onClick(View v){
         switch (v.getId()){
-            case btnLogin1:// if the login button was pressed
-                Intent i=new Intent(MainActivity.this, LogonJava.class);
-                startActivity(i);
-            case btnGuest:// if the guest button was pressed
+            case btnLogin1:// if the login button was pressed, validate the username/password
+                Intent logon=new Intent(MainActivity.this, LogonJava.class);
+                startActivity(logon);
+                break;
+            case btnGuest:// if the guest button was pressed, then go to the Menu Page
                 Intent j=new Intent(MainActivity.this, MenuJava.class);
                 startActivity(j);
+                break;
         }
     }
 }

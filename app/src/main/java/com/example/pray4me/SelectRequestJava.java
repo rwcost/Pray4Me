@@ -83,7 +83,7 @@ public class SelectRequestJava extends AppCompatActivity implements View.OnClick
                 TextView resultView = findViewById(R.id.tvRequestReturned);
 
                 /*
-                Create a new class to get the data from the mssql database
+                Create a new class to get the data from the SQlServer database
                  */
                 APIExchange myExchange = new APIExchange();
                 /*

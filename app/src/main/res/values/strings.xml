@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Pray4Me</string>
-    <string name="menuInstructions">Please click on any picture...</string>
+    <string name="menuInstructions">Please click on any picture below...</string>
     <string name="requestInstructions">I need someone to pray for me!</string>
     <string name="prayerChainInstructions">Link people to pray...</string>
     <string name="communityResources">See the community help for you</string>

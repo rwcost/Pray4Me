@@ -1,11 +1,13 @@
 package com.example.pray4me;
 
-
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkResponse;
@@ -32,22 +34,23 @@ import java.util.concurrent.atomic.AtomicReference;
 /*
 This class wi used to send and receive data to the SQL server
  */
-public class APIExchange {
-
-
-
+public class APIExchange extends AppCompatActivity {
     APIExchange(){
         String responseString = "";
     }
 
+ //   SaveDataHere saveDataHereObj = new SaveDataHere();
+
     String responseString = "";
     final String[] responseString1 = {""};
+
+    String userNameReturn = "";
 
     /*
      This method will get data from the web, we send a web request with the id passed below,
      then the data returned from the web will be put in a JSONArray
      */
-    public void GetDataFromAPI(Context context, String queryToProcess, TextView myViewIn) {
+    public String GetDataFromAPI(Context context, String queryToProcess, TextView myViewIn) {
         /*
             This address of the web API
         */
@@ -81,7 +84,7 @@ public class APIExchange {
                     String resultCombo = "";
 
                     // put the response from the request to azure in a Json object
-                    JSONObject obj = new JSONObject(response.toString());
+                    JSONObject obj = new JSONObject(response);
 
                     // create a JSON array for the JSON object operations
                     JSONArray arr = obj.getJSONArray("operations");
@@ -90,8 +93,25 @@ public class APIExchange {
                     for (int i = 0; i < arr.length(); i++) {
                         resultCombo = resultCombo + arr.getString(i) + System.getProperty("line.separator");
                     }
-                    // add the results strings into the screen view passed into this method
-                    myViewIn.setText(resultCombo);
+
+                    if(!resultCombo.equals(""))
+                    {
+                        Intent myIntent = new Intent(context, MenuJava.class);
+                        context.startActivity(myIntent);
+                    }
+                    else
+                    {
+                        //myViewIn.setText(resultCombo);
+                        LogonJava mylogin = new LogonJava();
+                        mylogin.setTxt(resultCombo);
+
+                        Intent myIntent = new Intent(context, LogonJava.class);
+                        context.startActivity(myIntent);
+                        //Snackbar mySnackbar = Snackbar.make(myViewIn, "login is invalid", 2000);
+                        //mySnackbar.show();
+                    }
+
+                    userNameReturn = resultCombo;
 
                 } catch (JSONException e) {
                     throw new RuntimeException(e);
@@ -104,6 +124,7 @@ public class APIExchange {
             }
         });
         queue.add(request);
+        return userNameReturn;
     }
 
 //  ********************************** Post JSON body to the database below **********************************************
@@ -141,7 +162,6 @@ public class APIExchange {
          This section of code creates a test JSON object to send to the API
          */
         RequestQueue queue = Volley.newRequestQueue(context);
-
 
         // from method input parameter, not using above code assignment to the jsonbody
         final String mRequestBody = jsonBodyInputParam.toString();
