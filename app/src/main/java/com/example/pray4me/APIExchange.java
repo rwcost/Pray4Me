@@ -98,17 +98,12 @@ public class APIExchange extends AppCompatActivity {
                     {
                         Intent myIntent = new Intent(context, MenuJava.class);
                         context.startActivity(myIntent);
+                        myViewIn.setText("");
                     }
                     else
                     {
-                        //myViewIn.setText(resultCombo);
-                        LogonJava mylogin = new LogonJava();
-                        mylogin.setTxt(resultCombo);
+                        myViewIn.setText("Incorrect password / Username");
 
-                        Intent myIntent = new Intent(context, LogonJava.class);
-                        context.startActivity(myIntent);
-                        //Snackbar mySnackbar = Snackbar.make(myViewIn, "login is invalid", 2000);
-                        //mySnackbar.show();
                     }
 
                     userNameReturn = resultCombo;

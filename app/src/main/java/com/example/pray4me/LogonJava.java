@@ -46,7 +46,7 @@ public class LogonJava extends AppCompatActivity implements View.OnClickListener
 
     public void setTxt(String retStatus)
     {
-        TextView pwd_status = findViewById(R.id.returnedValue);
+        TextView pwd_status = findViewById(R.id.returnedValueTV);
         pwd_status.setText(retStatus);
     }
             @Override
@@ -57,8 +57,8 @@ public class LogonJava extends AppCompatActivity implements View.OnClickListener
                     case R.id.Loginbutton:
 
                         // this is the place where you enter your zipcode
-                        TextView resultView = findViewById(R.id.returnedValue);
-                        resultView.setText("");
+                        TextView resultView = findViewById(R.id.returnedValueTV);
+
                         TextView user1 = (TextView) findViewById(R.id.loginName);
                         String user2 = user1.getText().toString().trim();
                     /*
