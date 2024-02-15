@@ -89,7 +89,7 @@ public class addContact extends AppCompatActivity  implements View.OnClickListen
 
             APIExchange api = new APIExchange();
 
-            api.postDataUsingVolleyBody(jsonBody,"ok",this);
+            api.postDataUsingVolleyBody(jsonBody,"addContact",this);
 
         } catch (JSONException e) {
             throw new RuntimeException(e);

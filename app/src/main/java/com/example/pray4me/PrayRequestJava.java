@@ -81,12 +81,60 @@ public class PrayRequestJava extends AppCompatActivity implements View.OnClickLi
                 // go to the pray request page and add another request
                 Intent kk = new Intent(PrayRequestJava.this, SelectionsJava.class);
                 startActivity(kk);
+                break;
             case btnSend:
                 /*
                     This is a class in which all the Web API code is accessed
                     insert into dbo.request (userid,request,priority,type) values ('4','hello','1','1');
                  */
-                APIExchange myExchange = new APIExchange();
+
+            // create a json object for the array body
+                JSONObject myJSONBody = new JSONObject();
+            for(int i=0;i<myArrayList.size();i++) {
+                try {
+                    // add the prayer request list using an index ("i") as a object name
+                    myJSONBody.put(Integer.toString(i), myArrayList.get(i).toString());
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+                JSONArray myJsonArray = new JSONArray();
+
+                myJsonArray.put(myJSONBody);
+
+                JSONObject mainObj = new JSONObject();
+
+                try {
+                    mainObj.put("requestList", myJsonArray);
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
+                }
+
+//                try {
+//                    myJSONBody.put("requestList", myArrayList.toString());
+//                } catch (JSONException e) {
+//                    throw new RuntimeException(e);
+//                }
+
+//            for(int i=0;i<myArrayList.size();i++)
+//            {
+//                try {
+//                    myJSONBody.put("json",myArrayList.get(i));
+//                } catch (JSONException e) {
+//                    throw new RuntimeException(e);
+//                }
+//            }
+
+            APIExchange myExchange = new APIExchange();
+
+                try {
+                    myExchange.postDataUsingVolleyBody(mainObj,"PrayerRequestJava",this);
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
+                }
+
+                //myExchange.postDataUsingVolleyBody();
 
                 /*
                 Create a request to get data from the web API,
@@ -94,6 +142,8 @@ public class PrayRequestJava extends AppCompatActivity implements View.OnClickLi
                 */
                 String sql = "insert into dbo.request (userid,request,priority,type) values ('4','hello','1','1'); ";
                 //myExchange.GetDataFromAPI(this,"request_by_zipcode",summary);
+
+                //ToDo : Put in query to save the prayer request
 
         }
     }

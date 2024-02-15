@@ -148,10 +148,23 @@ public class APIExchange extends AppCompatActivity {
     information to a database on a remote server via the web.
      */
     public void postDataUsingVolleyBody(JSONObject jsonBodyInputParam, String status, Context context) throws JSONException {
-        // url to post our data
-        String url = "http://10.0.2.2:5215/api/Users/create";
 
-        //loadingPB.setVisibility(View.VISIBLE);
+        String url = "";
+        switch (status)
+        {
+            case "PrayerRequestJava":
+                // url to post our data
+                url = "http://10.0.2.2:5215/api/Users/request";
+            break;
+
+            case "addContact":
+                // url to post our data
+                url = "http://10.0.2.2:5215/api/Users/create";
+            break;
+
+            default:
+
+        }
 
         /*
          This section of code creates a test JSON object to send to the API
