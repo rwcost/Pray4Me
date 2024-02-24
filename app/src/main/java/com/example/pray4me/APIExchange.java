@@ -182,7 +182,6 @@ public class APIExchange extends AppCompatActivity {
         This section of code is using the volley library to send data to a remote API
         public StringRequest(java.lang.String url,
                      Response.Listener<java.lang.String> listener,
-                     @Nullable
                      Response.ErrorListener errorListener)
          */
         StringRequest request = new StringRequest(Request.Method.POST, url, new com.android.volley.Response.Listener<String>()

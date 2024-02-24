@@ -89,24 +89,28 @@ public class PrayRequestJava extends AppCompatActivity implements View.OnClickLi
                  */
 
             // create a json object for the array body
-                JSONObject myJSONBody = new JSONObject();
+
+                JSONArray myJsonArray = new JSONArray();
+
             for(int i=0;i<myArrayList.size();i++) {
                 try {
                     // add the prayer request list using an index ("i") as a object name
+                    JSONObject myJSONBody = new JSONObject();
                     myJSONBody.put(Integer.toString(i), myArrayList.get(i).toString());
+                    myJsonArray.put(myJSONBody);
                 } catch (JSONException e) {
                     throw new RuntimeException(e);
                 }
             }
 
-                JSONArray myJsonArray = new JSONArray();
+                //JSONArray myJsonArray = new JSONArray();
 
-                myJsonArray.put(myJSONBody);
+                //myJsonArray.put(myJSONBody);
 
                 JSONObject mainObj = new JSONObject();
 
                 try {
-                    mainObj.put("requestList", myJsonArray);
+                       mainObj.put("requestList", myJsonArray);
                 } catch (JSONException e) {
                     throw new RuntimeException(e);
                 }
