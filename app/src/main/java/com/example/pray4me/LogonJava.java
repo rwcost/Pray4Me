@@ -67,7 +67,7 @@ public class LogonJava extends AppCompatActivity implements View.OnClickListener
                     */
                         APIExchange myExchange = new APIExchange();
 
-                       String queryToProcess = "select password from users where username like '" + user2 + "'"     ;
+                       String queryToProcess = "select password, userid from users where username like '" + user2 + "'"     ;
 
                        String myResult = myExchange.GetDataFromAPI(this,queryToProcess,resultView);
 

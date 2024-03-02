@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Model {
     private static Model __instance = null;
 
-    private Model() {
+    public Model() {
     }
 
     public static Model instance() {
@@ -18,6 +18,8 @@ public class Model {
     }
 
     ArrayList<Editable> prayerRequestList = new ArrayList<>();
+
+    String userid  = new String();
 
     public void setPrayerRequestList(Editable prayerRequest) {
         this.prayerRequestList.add(prayerRequest);

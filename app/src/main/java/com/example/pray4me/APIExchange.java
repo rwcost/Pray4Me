@@ -93,19 +93,22 @@ public class APIExchange extends AppCompatActivity {
                     for (int i = 0; i < arr.length(); i++) {
                         resultCombo = resultCombo + arr.getString(i) + System.getProperty("line.separator");
                     }
-
+                    // if anything is returned from the database
+                    // then start the main menu page, if nothing is returned
+                    // then print "Incorrect password / Username"
+                    // in the password box.
                     if(!resultCombo.equals(""))
                     {
                         Intent myIntent = new Intent(context, MenuJava.class);
                         context.startActivity(myIntent);
                         myViewIn.setText("");
+                        ModelOne myModelOne = new ModelOne();
+                        myModelOne.userIdForSession = resultCombo;
                     }
                     else
                     {
                         myViewIn.setText("Incorrect password / Username");
-
                     }
-
                     userNameReturn = resultCombo;
 
                 } catch (JSONException e) {
@@ -118,6 +121,7 @@ public class APIExchange extends AppCompatActivity {
                 //Log.d("error",error.toString());
             }
         });
+        // This is were the request to the API is queued.
         queue.add(request);
         return userNameReturn;
     }
@@ -253,25 +257,6 @@ public class APIExchange extends AppCompatActivity {
                 if (response != null)
                 {
                     responseString = String.valueOf(response.statusCode);
-
-//
-//                    runOnUiThread(new Runnable() {
-//                        public void run() {
-//                            //Do something on UiThread
-//                        }
-//                    });
-
-
-                    // create an addcontact object to call the popup menu
-//                    addContact myContactDisplay = new addContact();
-//                    myContactDisplay.popUpMaker(responseString);
-//                    activity.runOnUiThread(new Runnable() {
-//                        @Override
-//                        public void run() {
-//                            Toast.makeText(...).show();
-//                        }
-//                    });
-
 
                 }
                 return Response.success(responseString, HttpHeaderParser.parseCacheHeaders(response));
