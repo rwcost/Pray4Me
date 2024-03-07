@@ -100,10 +100,9 @@ public class APIExchange extends AppCompatActivity {
                     if(!resultCombo.equals(""))
                     {
                         Intent myIntent = new Intent(context, MenuJava.class);
+                        myIntent.putExtra("key",arr.getString(1) );
                         context.startActivity(myIntent);
                         myViewIn.setText("");
-                        ModelOne myModelOne = new ModelOne();
-                        myModelOne.userIdForSession = resultCombo;
                     }
                     else
                     {

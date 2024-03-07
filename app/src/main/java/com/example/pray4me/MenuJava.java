@@ -20,12 +20,20 @@ allowing users to go to the Prayer Request, the prayChain or the community resou
 public class MenuJava extends AppCompatActivity implements View.OnClickListener {
     String username = "";
     String password = "";
+
+    String menuJavaUserID = "";
 /*
 This onCreate method will be called when this activity is called.
  */
     @SuppressLint("MissingInflatedId")
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            menuJavaUserID = extras.getString("key");
+            //The key argument here must match that used in the other activity
+        }
 
         /*
         This setContentView is important since it sets the reference of the screen page to this java class.
