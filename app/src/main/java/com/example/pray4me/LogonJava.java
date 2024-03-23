@@ -1,10 +1,5 @@
 package com.example.pray4me;
-
-import static com.example.pray4me.R.id.prayRequestImageButton;
-import static com.example.pray4me.R.id.trouble;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;

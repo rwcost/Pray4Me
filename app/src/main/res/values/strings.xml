@@ -1,10 +1,12 @@
 <resources>
     <string name="app_name">Pray4Me</string>
     <string name="menuInstructions">Please click on any picture below...</string>
+    <string name="PrayRequestPageOR">(Step 2) Or... Select one from below</string>
+    <string name="PrayRequestPageStep3">(Step 3) Click Done Prayer Request </string>
     <string name="requestInstructions">I need someone to pray for me!</string>
     <string name="prayerChainInstructions">Link people to pray...</string>
     <string name="communityResources">See the community help for you</string>
-    <string name="PrayRequestPageTitle">Type in or tap your prayer request</string>
+    <string name="PrayRequestPageTitle">(Step 1) Type in your prayer request</string>
     <string name="prayerChainInstruction">Please Select Prayer Chain</string>
     <string name="CommunityResourceInstruction">Please Select Community Resource</string>
     <string name="trouble">I\'m in trouble, please pray for me.</string>

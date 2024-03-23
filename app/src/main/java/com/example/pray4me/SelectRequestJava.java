@@ -18,10 +18,16 @@ import static com.example.pray4me.R.id.btnPrayByZipcodeCont;
 
 public class SelectRequestJava extends AppCompatActivity implements View.OnClickListener{
 
+    String menuJavaUserID = "";
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.select_request_xml);
+
+        Bundle extras = getIntent().getExtras();
+        menuJavaUserID = extras.getString("key");
+
 //        TextView txtScroll = (TextView) findViewById(R.id.txt1);
 //        txtScroll.setMovementMethod(new ScrollingMovementMethod());
 
@@ -57,10 +63,12 @@ public class SelectRequestJava extends AppCompatActivity implements View.OnClick
 
             // the next two lines will switch to the page PrayRequestJava class and its screen page
             Intent i = new Intent(SelectRequestJava.this, PrayRequestJava.class);
+            i.putExtra("key",menuJavaUserID);
             startActivity(i);
 
             case btnPrayForAll:
                 Intent j = new Intent(SelectRequestJava.this, PrayRequestJava.class);
+                j.putExtra("key",menuJavaUserID);
                 startActivity(j);
 
             case btnPrayByZipcode:

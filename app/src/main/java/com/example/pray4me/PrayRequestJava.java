@@ -35,6 +35,9 @@ import java.util.List;
 public class PrayRequestJava extends AppCompatActivity implements View.OnClickListener {
 
     EditText summary;
+
+    String menuJavaUserID="";
+
     ArrayList<Editable> myArrayList = new ArrayList<Editable>();
 
     @Override
@@ -43,6 +46,9 @@ public class PrayRequestJava extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.pray_request_list);
         summary = (EditText) findViewById(R.id.mlvRequestSummary);
         myArrayList = (ArrayList<Editable>) Model.instance().getPrayerRequestList();
+
+        Bundle extras = getIntent().getExtras();
+        menuJavaUserID = extras.getString("key");
 
         // set up a button and point it to a xml button
         Button sendbutton = findViewById(btnSend);
@@ -80,6 +86,7 @@ public class PrayRequestJava extends AppCompatActivity implements View.OnClickLi
             case btnAdd:
                 // go to the pray request page and add another request
                 Intent kk = new Intent(PrayRequestJava.this, SelectionsJava.class);
+                kk.putExtra("key",menuJavaUserID);
                 startActivity(kk);
                 break;
             case btnSend:

@@ -73,6 +73,8 @@ This onCreate method will be called when this activity is called.
                 to open the Prayer request menu screen by opening the Java class.
                 */
                 Intent i=new Intent(MenuJava.this, SelectionsJava.class);
+                // This passes the userid to the next activity
+                i.putExtra("key",menuJavaUserID);
                 startActivity(i);
                 break;
             case prayForSomeoneButton:
@@ -81,6 +83,8 @@ This onCreate method will be called when this activity is called.
                 to open the Prayer Chain menu screen by opening the Java class.
                 */
                 Intent j =new Intent(MenuJava.this, SelectRequestJava.class);
+                // This passes the userid to the next activity
+                j.putExtra("key",menuJavaUserID);
                 startActivity(j);
                 break;
             case communityButton:
@@ -89,6 +93,8 @@ This onCreate method will be called when this activity is called.
                 to open the community resource menu screen by opening the Java class.
                 */
                 Intent k =new Intent(MenuJava.this, ResourceJava.class);
+                // This passes the userid to the next activity
+                k.putExtra("key",menuJavaUserID);
                 startActivity(k);
                 break;
         }
